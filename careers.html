@@ -1,0 +1,2706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers - TechRiwaayat</title>
+  <meta name="description" content="Join TechRiwaayat and explore exciting career opportunities in web development, WordPress, SEO, digital marketing, and IT services. Grow your skills and be part of our innovative team.">
+   <link rel="icon" type="image/jpeg" sizes="16x16" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="64x64" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="128x128" href="./assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      background: #f8fafc;
+      color: #1f2937;
+    }
+
+
+
+
+
+
+     
+    /* Navigation Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #1f2937;
+      font-weight: 700;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+    }
+
+    .logo-text {
+      font-size: 21px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Desktop Navigation */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      background: #f3f4f6;
+      color: #7c3aed;
+      transform: translateY(-1px);
+    }
+
+    .nav-link i {
+      font-size: 14px;
+    }
+
+    .dropdown-arrow {
+      font-size: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-item.active .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 220px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1001;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 12px 20px;
+      color: #374151;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .dropdown-item:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+      background: #f8fafc;
+      color: #7c3aed;
+      padding-left: 24px;
+    }
+
+    .dropdown-item i {
+      width: 16px;
+      margin-right: 8px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    
+
+    /* Mobile Menu Toggle */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #374151;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-toggle:hover {
+      background: #f3f4f6;
+      color: #7c3aed;
+    }
+
+    .mobile-toggle.active {
+      color: #7c3aed;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: white;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 999;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      padding: 20px;
+    }
+
+    .mobile-nav-item {
+      margin-bottom: 8px;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+    }
+
+    .mobile-nav-link:hover {
+      background: #eff6ff;
+      color: #7c3aed;
+      transform: translateX(4px);
+    }
+
+    .mobile-nav-link i {
+      font-size: 16px;
+    }
+
+    .mobile-dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+
+    .mobile-dropdown.active {
+      max-height: 375px;
+      padding: 12px 0;
+    }
+
+    .mobile-dropdown-item {
+      display: block;
+      padding: 12px 24px;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      margin: 4px 12px;
+      border-radius: 6px;
+    }
+
+    .mobile-dropdown-item:hover {
+      background: #dbeafe;
+      color: #7c3aed;
+      transform: translateX(4px);
+    }
+
+    
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+    }
+
+    /* Demo Content */
+    .demo-content {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .demo-section {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .demo-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+
+    .demo-section p {
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Animation Classes */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .dropdown {
+      animation: slideDown 0.3s ease when visible;
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      padding-top: 110px;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.9;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      font-weight: 400;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 80px 20px;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1f2937;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Culture Section */
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .culture-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .culture-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #7c3aed, #a855f7);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .culture-card:hover::before {
+      transform: translateX(0);
+    }
+
+    .culture-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .culture-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .culture-icon i {
+      font-size: 32px;
+      color: #7c3aed;
+    }
+
+    .culture-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #1f2937;
+    }
+
+    .culture-card p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* Job Listings */
+    .jobs-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .jobs-header {
+      padding: 40px;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .job-filters {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .filter-btn {
+      padding: 8px 16px;
+      border: 2px solid #e5e7eb;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      border-color: #7c3aed;
+      background: #7c3aed;
+      color: white;
+    }
+
+    .job-list {
+      padding: 0;
+    }
+
+    .job-item {
+      padding: 32px 40px;
+      border-bottom: 1px solid #f3f4f6;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .job-item:hover {
+      background: #f8fafc;
+    }
+
+    .job-item:last-child {
+      border-bottom: none;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: between;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    .job-info {
+      flex: 1;
+    }
+
+    .job-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 8px;
+    }
+
+    .job-meta {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .job-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .job-meta-item i {
+      font-size: 12px;
+      color: #7c3aede7;
+    }
+
+    .job-description {
+      color: #6b7280;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .job-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .job-tag {
+      background: #eff6ff;
+      color: #7c3aed;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .apply-btn {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .apply-btn:hover {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(162, 59, 246, 0.3);
+    }
+
+    /* Benefits Section */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .benefit-item {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .benefit-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .benefit-icon i {
+      font-size: 24px;
+      color: #7c3aed;
+    }
+
+    .benefit-item h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #1f2937;
+    }
+
+    .benefit-item p {
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    /* Application Form */
+    .application-section {
+      background: linear-gradient(135deg, #f0f0f3, #eceef3);
+    }
+
+    .application-form {
+      background: white;
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .application-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #7c3aed, #a855f7);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #a855f7;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .file-upload {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .file-upload input[type="file"] {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .file-upload-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px;
+      border: 2px dashed #d1d5db;
+      border-radius: 12px;
+      background: #f9fafb;
+      transition: all 0.3s ease;
+    }
+
+    .file-upload:hover .file-upload-label {
+      border-color: #7c3aed;
+      background: #eff6ff;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: white;
+      border: none;
+      padding: 16px 40px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+    }
+
+    /* FAQ Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: between;
+      align-items: center;
+      gap: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: #f8fafc;
+    }
+
+    .faq-question h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1f2937;
+      flex: 1;
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #a855f7;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .faq-answer {
+      padding: 0 24px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding: 0 24px 24px;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* Success Message */
+    .success-message {
+      background: #7c3aed;
+      color: white;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      display: none;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .success-message.show {
+      display: flex;
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+      
+      .job-header {
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .apply-btn {
+        align-self: flex-start;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: 50vh;
+        padding: 40px 20px;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .culture-card,
+      .application-form {
+        padding: 32px;
+      }
+
+      .jobs-header,
+      .job-item {
+        padding: 24px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .job-meta {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .hero-section{
+        padding-top: 100px;
+      }
+
+      .culture-card,
+      .application-form {
+        padding: 24px;
+      }
+
+      .jobs-header,
+      .job-item {
+        padding: 20px;
+      }
+    }
+
+    /* Animations */
+    .culture-card,
+    .job-item,
+    .benefit-item,
+    .faq-item {
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .culture-card:nth-child(1) { animation-delay: 0.1s; }
+    .culture-card:nth-child(2) { animation-delay: 0.2s; }
+    .culture-card:nth-child(3) { animation-delay: 0.3s; }
+    .culture-card:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+
+
+    
+     /* Floating Icons */
+    .floating-icons {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .floating-icon {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .floating-icon i {
+      font-size: 24px;
+      color: white;
+    }
+
+    .floating-icon:nth-child(1) {
+      top: 15%;
+      left: 8%;
+      animation: floatIcon 6s ease-in-out infinite;
+    }
+
+    .floating-icon:nth-child(2) {
+      top: 25%;
+      right: 12%;
+      animation: floatIcon 8s ease-in-out infinite reverse;
+    }
+
+    .floating-icon:nth-child(3) {
+      bottom: 35%;
+      left: 12%;
+      animation: floatIcon 7s ease-in-out infinite;
+    }
+
+    .floating-icon:nth-child(4) {
+      bottom: 15%;
+      right: 8%;
+      animation: floatIcon 9s ease-in-out infinite reverse;
+    }
+
+    .floating-icon:nth-child(5) {
+      top: 45%;
+      left: 5%;
+      animation: floatIcon 10s ease-in-out infinite;
+    }
+
+    .floating-icon:nth-child(6) {
+      top: 35%;
+      right: 5%;
+      animation: floatIcon 11s ease-in-out infinite reverse;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+      /* Responsive Design */
+    @media (max-width: 768px) {
+      .floating-icon{
+        display: none;
+      }
+    }
+
+
+    /* Footer Styles */
+    .footer {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      color: white;
+      padding: 40px 90px 0;
+      margin-top: 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #a855f7;
+    }
+
+    .footer-section h4 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .footer-section p {
+      color: #ffffff;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: #a855f7;
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-link:hover {
+      background: #a855f7;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #d1d5db;
+      font-size: 14px;
+    }
+
+    .contact-item i {
+      width: 20px;
+      color: #a855f7;
+      font-size: 16px;
+    }
+
+    .contact-item a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #a855f7;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 24px 0;
+    }
+
+    .footer-bottom-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .copyright p {
+      color: #9ca3af;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #a855f7;
+    }
+
+    /* Footer Responsive */
+    @media (max-width: 768px) {
+      .footer {
+        padding: 40px 20px 0;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+
+      .footer-section:first-child {
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .footer-bottom-links {
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .contact-info {
+        align-items: center;
+      }
+
+      .contact-item {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-content {
+        gap: 25px;
+      }
+
+      .footer-section h3 {
+        font-size: 24px;
+      }
+
+      .footer-section h4 {
+        font-size: 16px;
+      }
+
+      .social-links {
+        gap: 12px;
+      }
+
+      .social-link {
+        width: 36px;
+        height: 36px;
+      }
+
+      .footer-bottom-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+
+
+
+ /* Loading Overlay */
+      .pl {
+  width: 6em;
+  height: 6em;
+}
+
+.pl__ring {
+  animation: ringA 2s linear infinite;
+}
+
+.pl__ring--a {
+  stroke: #a855f7;
+}
+
+.pl__ring--b {
+  animation-name: ringB;
+  stroke: #3068f5;
+}
+
+.pl__ring--c {
+  animation-name: ringC;
+  stroke: #3068f5;
+}
+
+.pl__ring--d {
+  animation-name: ringD;
+  stroke: #a855f7;
+}
+
+/* Animations */
+@keyframes ringA {
+  from, 4% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+
+  12% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -335;
+  }
+
+  32% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -595;
+  }
+
+  40%, 54% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -660;
+  }
+
+  62% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -665;
+  }
+
+  82% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -925;
+  }
+
+  90%, to {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -990;
+  }
+}
+
+@keyframes ringB {
+  from, 12% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -110;
+  }
+
+  20% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -115;
+  }
+
+  40% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -195;
+  }
+
+  48%, 62% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  70% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  90% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -305;
+  }
+
+  98%, to {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+}
+
+@keyframes ringC {
+  from {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  8% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  28% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  36%, 58% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  66% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  86% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  94%, to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+@keyframes ringD {
+  from, 8% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  16% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  36% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  44%, 50% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  58% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  78% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  86%, to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+     .loadin-Overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .loadin-Overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+
+   <!-- Loading Overlay -->
+   <div class="loadin-Overlay" id="loadingOverlay">
+ <svg class="pl" width="240" height="240" viewBox="0 0 240 240">
+	<circle class="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 660" stroke-dashoffset="-330" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 220" stroke-dashoffset="-110" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+</svg>
+</div>
+   
+ <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="./index.html" class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <span class="logo-text">TechRiwaayat</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+        </li>
+
+         <li class="nav-item">
+          <a href="./about-us.html" class="nav-link">
+            <i class="fas fa-info-circle"></i>
+            About
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="dropdown">
+            <a href="./our-team.html" class="dropdown-item">
+              <i class="fas fa-users"></i>
+              Our Team
+            </a>
+            <a href="./history.html" class="dropdown-item">
+              <i class="fas fa-history"></i>
+              Company History
+            </a>
+            <a href="./careers.html" class="dropdown-item">
+              <i class="fas fa-users-cog"></i>
+              Careers
+            </a>
+            <a href="./achievements.html" class="dropdown-item">
+              <i class="fas fa-award"></i>
+              Achievements
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./services.html" class="nav-link">
+            <i class="fas fa-cogs"></i>
+            Services
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="dropdown">
+            <a href="./web-development.html" class="dropdown-item">
+              <i class="fas fa-globe"></i>
+              Web Development
+            </a>
+            <a href="./data-services.html" class="dropdown-item">
+              <i class="fas fa-database"></i>
+              Data Service
+            </a>
+            <a href="./custom-software.html" class="dropdown-item">
+              <i class="fas fa-code"></i>
+              Custom Software
+            </a>
+            <a href="./wordpress-development.html" class="dropdown-item">
+              <i class="fab fa-wordpress"></i>
+              WordPress Development
+            </a>
+            <a href="./seo-services.html" class="dropdown-item">
+              <i class="fas fa-chart-line"></i>
+              Search engine Optimization
+            </a>
+             <a href="./digital-marketing.html" class="dropdown-item">
+              <i class="fas fa-bullhorn"></i> Digital Marketing
+            </a>
+            <a href="./maintenance-support.html" class="dropdown-item">
+              <i class="fas fa-tools"></i>
+              Maintenance & Support
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./portfolio.html" class="nav-link">
+            <i class="fas fa-briefcase"></i>
+            Portfolio
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./blog.html" class="nav-link">
+            <i class="fas fa-blog"></i>
+            Blog
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./contact-us.html" class="nav-link">
+            <i class="fas fa-envelope"></i>
+            Contact
+          </a>
+        </li>
+      </ul>
+
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle" id="mobileToggle">
+        <i class="fas fa-bars" id="toggleIcon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item">
+          <a href="./index.html" class="mobile-nav-link">
+            <span><i class="fas fa-home"></i> Home</span>
+          </a>
+        </li>
+
+        <li class="mobile-nav-item">
+          <a href="./about-us.html" class="mobile-nav-link" onclick="toggleMobileDropdown(event, 'about')">
+            <span><i class="fas fa-info-circle"></i> About</span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="mobile-dropdown" id="about">
+            <a href="./our-team.html" class="mobile-dropdown-item">
+              <i class="fas fa-users"></i> Our Team
+            </a>
+            <a href="./history.html" class="mobile-dropdown-item">
+              <i class="fas fa-history"></i> Company History
+            </a>
+            <a href="./careers.html" class="mobile-dropdown-item">
+              <i class="fas fa-users-cog"></i> Careers
+            </a>
+            <a href="./achievements.html" class="mobile-dropdown-item">
+              <i class="fas fa-award"></i> Achievements
+            </a>
+          </div>
+        </li>
+
+        
+        <li class="mobile-nav-item">
+          <a href="./services.html" class="mobile-nav-link" onclick="toggleMobileDropdown(event, 'services')">
+            <span><i class="fas fa-cogs"></i> Services</span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="mobile-dropdown" id="services">
+            <a href="./web-development.html" class="mobile-dropdown-item">
+              <i class="fas fa-globe"></i> Web Development
+            </a>
+            <a href="./data-services.html" class="mobile-dropdown-item">
+              <i class="fas fa-database"></i> Data Service
+            </a>
+            <a href="./custom-software.html" class="mobile-dropdown-item">
+              <i class="fas fa-code"></i> Custom Software
+            </a>
+            <a href="./wordpress-development.html" class="mobile-dropdown-item">
+              <i class="fab fa-wordpress"></i> WordPress Development
+            </a>
+            <a href="./seo-services.html" class="mobile-dropdown-item">
+              <i class="fas fa-chart-line"></i> Search engine Optimization
+            </a>
+            <a href="./digital-marketing.html" class="mobile-dropdown-item">
+              <i class="fas fa-bullhorn"></i> Digital Marketing
+            </a>
+            <a href="./maintenance-support.html" class="mobile-dropdown-item">
+              <i class="fas fa-tools"></i> Maintenance & Support
+            </a>
+          </div>
+        </li>
+
+
+        <li class="mobile-nav-item">
+          <a href="./portfolio.html" class="mobile-nav-link">
+            <span><i class="fas fa-briefcase"></i> Portfolio</span>
+          </a>
+        </li>
+
+
+        <li class="mobile-nav-item">
+          <a href="./blog.html" class="mobile-nav-link">
+            <span><i class="fas fa-blog"></i> Blog</span>
+          </a>
+        </li>
+
+        <li class="mobile-nav-item">
+          <a href="./contact-us.html" class="mobile-nav-link">
+            <span><i class="fas fa-envelope"></i> Contact</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="floating-icons">
+      <div class="floating-icon"><i class="fas fa-code"></i></div>
+      <div class="floating-icon"><i class="fas fa-lightbulb"></i></div>
+      <div class="floating-icon"><i class="fas fa-rocket"></i></div>
+      <div class="floating-icon"><i class="fas fa-users"></i></div>
+      <div class="floating-icon"><i class="fas fa-heart"></i></div>
+      <div class="floating-icon"><i class="fas fa-star"></i></div>
+    </div>
+    <div class="brand">TechRiwaayat</div>
+    <h1 class="hero-title">Join Our Team</h1>
+    <div class="hero-subtitle">Build the future of software development with passionate innovators and cutting-edge technology</div>
+
+  </section>
+
+  <!-- Culture Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Culture</h2>
+        <p class="section-subtitle">We believe in creating an environment where innovation thrives and every voice matters</p>
+      </div>
+
+      <div class="culture-grid">
+        <div class="culture-card">
+          <div class="culture-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Innovation First</h3>
+          <p>We encourage creative thinking and embrace new technologies to solve complex problems and deliver cutting-edge solutions.</p>
+        </div>
+
+        <div class="culture-card">
+          <div class="culture-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Collaborative Team</h3>
+          <p>Our diverse team works together seamlessly, sharing knowledge and supporting each other to achieve common goals.</p>
+        </div>
+
+        <div class="culture-card">
+          <div class="culture-icon">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <h3>Work-Life Balance</h3>
+          <p>We promote healthy work-life integration with flexible schedules and comprehensive wellness programs.</p>
+        </div>
+
+        <div class="culture-card">
+          <div class="culture-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Continuous Learning</h3>
+          <p>Invest in your growth with our learning budget, conference attendance, and skill development programs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job Listings Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Open Positions</h2>
+        <p class="section-subtitle">Find your next career opportunity with us</p>
+      </div>
+
+      <div class="jobs-container">
+        <div class="jobs-header">
+          <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">Available Opportunities</h3>
+          <p style="color: #6b7280;">Filter by department to find positions that match your expertise</p>
+          
+          <div class="job-filters">
+            <button class="filter-btn active" data-filter="all">All Positions</button>
+            <button class="filter-btn" data-filter="engineering">Engineering</button>
+            <button class="filter-btn" data-filter="design">Design</button>
+            <button class="filter-btn" data-filter="sales">Sales</button>
+            <button class="filter-btn" data-filter="marketing">Marketing</button>
+          </div>
+        </div>
+
+        <div class="job-list">
+          <div class="job-item" data-category="engineering">
+            <div class="job-header">
+              <div class="job-info">
+                <h3 class="job-title">Senior Full Stack Developer</h3>
+                <div class="job-meta">
+                  <div class="job-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lahore, Pakistan</span>
+                  </div>
+                  <div class="job-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Full-time</span>
+                  </div>
+                  <div class="job-meta-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Senior Level</span>
+                  </div>
+                </div>
+                <p class="job-description">Lead development of scalable web applications using React, Node.js, and cloud technologies. Work with cross-functional teams to deliver high-quality software solutions.</p>
+                <div class="job-tags">
+                  <span class="job-tag">React</span>
+                  <span class="job-tag">Node.js</span>
+                  <span class="job-tag">PostgreSQL</span>
+                  <span class="job-tag">AWS</span>
+                </div>
+              </div>
+              <button class="apply-btn" onclick="scrollToApplication()">Apply Now</button>
+            </div>
+          </div>
+
+          <div class="job-item" data-category="engineering">
+            <div class="job-header">
+              <div class="job-info">
+                <h3 class="job-title">Mobile App Developer</h3>
+                <div class="job-meta">
+                  <div class="job-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lahore, Pakistan</span>
+                  </div>
+                  <div class="job-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Full-time</span>
+                  </div>
+                  <div class="job-meta-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Mid Level</span>
+                  </div>
+                </div>
+                <p class="job-description">Develop cutting-edge mobile applications for iOS and Android platforms. Collaborate with designers and backend developers to create seamless user experiences.</p>
+                <div class="job-tags">
+                  <span class="job-tag">React Native</span>
+                  <span class="job-tag">Flutter</span>
+                  <span class="job-tag">iOS</span>
+                  <span class="job-tag">Android</span>
+                </div>
+              </div>
+              <button class="apply-btn" onclick="scrollToApplication()">Apply Now</button>
+            </div>
+          </div>
+
+          <div class="job-item" data-category="design">
+            <div class="job-header">
+              <div class="job-info">
+                <h3 class="job-title">UI/UX Designer</h3>
+                <div class="job-meta">
+                  <div class="job-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lahore, Pakistan</span>
+                  </div>
+                  <div class="job-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Full-time</span>
+                  </div>
+                  <div class="job-meta-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Mid Level</span>
+                  </div>
+                </div>
+                <p class="job-description">Create intuitive and engaging user interfaces for web and mobile applications. Conduct user research and create design systems that enhance user experience.</p>
+                <div class="job-tags">
+                  <span class="job-tag">Figma</span>
+                  <span class="job-tag">Adobe XD</span>
+                  <span class="job-tag">Prototyping</span>
+                  <span class="job-tag">User Research</span>
+                </div>
+              </div>
+              <button class="apply-btn" onclick="scrollToApplication()">Apply Now</button>
+            </div>
+          </div>
+
+          <div class="job-item" data-category="sales">
+            <div class="job-header">
+              <div class="job-info">
+                <h3 class="job-title">Business Development Manager</h3>
+                <div class="job-meta">
+                  <div class="job-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lahore, Pakistan</span>
+                  </div>
+                  <div class="job-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Full-time</span>
+                  </div>
+                  <div class="job-meta-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Senior Level</span>
+                  </div>
+                </div>
+                <p class="job-description">Drive business growth by identifying new opportunities, building client relationships, and developing strategic partnerships in the software development sector.</p>
+                <div class="job-tags">
+                  <span class="job-tag">Sales Strategy</span>
+                  <span class="job-tag">Client Relations</span>
+                  <span class="job-tag">Business Analysis</span>
+                  <span class="job-tag">CRM</span>
+                </div>
+              </div>
+              <button class="apply-btn" onclick="scrollToApplication()">Apply Now</button>
+            </div>
+          </div>
+
+          <div class="job-item" data-category="engineering">
+            <div class="job-header">
+              <div class="job-info">
+                <h3 class="job-title">DevOps Engineer</h3>
+                <div class="job-meta">
+                  <div class="job-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Remote</span>
+                  </div>
+                  <div class="job-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Full-time</span>
+                  </div>
+                  <div class="job-meta-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Senior Level</span>
+                  </div>
+                </div>
+                <p class="job-description">Manage cloud infrastructure, automate deployment pipelines, and ensure system reliability. Work with development teams to implement best practices for continuous integration and delivery.</p>
+                <div class="job-tags">
+                  <span class="job-tag">Docker</span>
+                  <span class="job-tag">Kubernetes</span>
+                  <span class="job-tag">AWS</span>
+                  <span class="job-tag">CI/CD</span>
+                </div>
+              </div>
+              <button class="apply-btn" onclick="scrollToApplication()">Apply Now</button>
+            </div>
+          </div>
+
+          <div class="job-item" data-category="marketing">
+            <div class="job-header">
+              <div class="job-info">
+                <h3 class="job-title">Digital Marketing Specialist</h3>
+                <div class="job-meta">
+                  <div class="job-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lahore, Pakistan</span>
+                  </div>
+                  <div class="job-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Full-time</span>
+                  </div>
+                  <div class="job-meta-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Mid Level</span>
+                  </div>
+                </div>
+                <p class="job-description">Develop and execute digital marketing campaigns across multiple channels. Analyze performance metrics and optimize strategies to drive lead generation and brand awareness.</p>
+                <div class="job-tags">
+                  <span class="job-tag">SEO/SEM</span>
+                  <span class="job-tag">Social Media</span>
+                  <span class="job-tag">Content Marketing</span>
+                  <span class="job-tag">Analytics</span>
+                </div>
+              </div>
+              <button class="apply-btn" onclick="scrollToApplication()">Apply Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="section" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Work With Us</h2>
+        <p class="section-subtitle">Comprehensive benefits package designed to support your personal and professional growth</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <h3>Competitive Salary</h3>
+          <p>Industry-leading compensation packages with performance-based bonuses and annual salary reviews.</p>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Latest Technology</h3>
+          <p>Work with cutting-edge tools and equipment. MacBook Pro, premium software licenses, and tech allowance.</p>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3>Flexible Schedule</h3>
+          <p>Choose your working hours and enjoy work-from-home options. We focus on results, not hours.</p>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Learning Budget</h3>
+          <p>Annual education allowance for courses, conferences, and certifications to advance your career.</p>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h3>Health & Wellness</h3>
+          <p>Comprehensive health insurance, mental health support, and wellness programs for you and your family.</p>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-plane"></i>
+          </div>
+          <h3>Paid Time Off</h3>
+          <p>Generous vacation policy, paid holidays, and sabbatical opportunities for long-term employees.</p>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Career Growth</h3>
+          <p>Clear advancement paths, mentorship programs, and opportunities to lead exciting projects.</p>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Team Events</h3>
+          <p>Regular team building activities, company retreats, and social events to build lasting connections.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form Section -->
+  <section class="section application-section" id="application">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Apply Now</h2>
+        <p class="section-subtitle">Ready to join our team? Submit your application and let's start a conversation</p>
+      </div>
+
+      <div class="application-form">
+        <div class="success-message" id="successMessage">
+          <i class="fas fa-check-circle"></i>
+          <span>Thank you! Your application has been submitted successfully. We'll be in touch soon.</span>
+        </div>
+
+        <form id="applicationForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="position">Position Applied For *</label>
+              <select id="position" name="position" required>
+                <option value="">Select a position</option>
+                <option value="senior-fullstack">Senior Full Stack Developer</option>
+                <option value="mobile-developer">Mobile App Developer</option>
+                <option value="ui-ux-designer">UI/UX Designer</option>
+                <option value="business-development">Business Development Manager</option>
+                <option value="devops-engineer">DevOps Engineer</option>
+                <option value="digital-marketing">Digital Marketing Specialist</option>
+                <option value="other">Other (specify in cover letter)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="experience">Years of Experience *</label>
+              <select id="experience" name="experience" required>
+                <option value="">Select experience</option>
+                <option value="0-1">0-1 years</option>
+                <option value="1-3">1-3 years</option>
+                <option value="3-5">3-5 years</option>
+                <option value="5-10">5-10 years</option>
+                <option value="10+">10+ years</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="linkedin">LinkedIn Profile</label>
+            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+          </div>
+
+          <div class="form-group">
+            <label for="portfolio">Portfolio/Website</label>
+            <input type="url" id="portfolio" name="portfolio" placeholder="https://yourportfolio.com">
+          </div>
+
+          <div class="form-group">
+            <label for="resume">Resume/CV *</label>
+            <div class="file-upload">
+              <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+              <label for="resume" class="file-upload-label">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>Click to upload your resume (PDF, DOC, DOCX)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="coverLetter">Cover Letter *</label>
+            <textarea id="coverLetter" name="coverLetter" placeholder="Tell us why you're interested in this position and what makes you a great fit for our team..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="salary">Expected Salary (PKR)</label>
+            <input type="number" id="salary" name="salary" placeholder="e.g., 150000" min="0">
+          </div>
+
+          <div class="form-group">
+            <label for="availability">When can you start?</label>
+            <select id="availability" name="availability">
+              <option value="">Select availability</option>
+              <option value="immediately">Immediately</option>
+              <option value="1-week">Within 1 week</option>
+              <option value="2-weeks">Within 2 weeks</option>
+              <option value="1-month">Within 1 month</option>
+              <option value="2-months">Within 2 months</option>
+            </select>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span>Submit Application</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Get answers to common questions about working at Web Mistary</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What is the interview process like?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>Our interview process typically consists of 3-4 rounds: initial phone screening, technical assessment, team interview, and final discussion with leadership. The entire process takes about 1-2 weeks, and we provide feedback at each stage.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Do you offer remote work opportunities?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! We offer flexible work arrangements including full remote, hybrid, and in-office options. Many of our positions can be performed remotely, and we have team members working from various locations across Pakistan and internationally.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What technologies do you work with?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>We use modern tech stacks including React, Node.js, Python, AWS, Docker, Kubernetes, React Native, Flutter, and more. We're always adopting new technologies and encourage our team to experiment with cutting-edge tools and frameworks.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How does career progression work?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>We have clear career paths for all roles with regular performance reviews every 6 months. We promote from within and provide mentorship, training, and stretch assignments to help you grow. Many of our senior team members started in junior positions.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What is the company culture like?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>Our culture is built on collaboration, innovation, and continuous learning. We value diverse perspectives, encourage open communication, and maintain a healthy work-life balance. We regularly organize team events, knowledge sharing sessions, and company retreats.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Do you provide training and development opportunities?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely! We provide an annual learning budget for each employee, sponsor conference attendance, offer internal training programs, and have a mentorship system. We encourage continuous learning and support professional certifications.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How long does the hiring process take?</h3>
+            <div class="faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>Our hiring process typically takes 2-3 weeks from application to offer. We aim to move quickly while ensuring a thorough evaluation. We'll keep you updated throughout the process and provide clear timelines at each stage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">
+            <h3>TechRiwaayat</h3>
+            <p>Professional data processing and web development solutions that drive business growth.</p>
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        
+       <div class="footer-section">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="./web-development.html"> Custom Web Development</a></li>
+            <li><a href="./wordpress-development.html">WordPress Development</a></li>
+            <li><a href="./data-services.html">Data Entry Services</a></li>
+            <li><a href="./data-services.html">Web Scraping</a></li>
+            <li><a href="./seo-services.html">Seo Services</a></li>
+            <li><a href="./custom-software.html">Software Development</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="./about-us.html">About Us</a></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><a href="./portfolio.html">Portfolio</a></li>
+             <li><a href="./services.html">Services</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Lahore, Punjab, Pakistan</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+923287458137">+92 328 7458137</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:mudassar523r@gmail.com.com">mudassar523r@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-clock"></i>
+              <span>24/7 Available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <div class="copyright">
+            <p>&copy; 2025 TechRiwaayat. All rights reserved.</p>
+          </div>
+          <div class="footer-bottom-links">
+            <a href="./privacy-policy.html">Privacy Policy</a>
+            <a href="./terms-of-service.html">Terms of Service</a>
+            <a href="./cookie-policy.html">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+
+ // Loading overlay
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loadingOverlay').classList.add('hidden');
+      }, 1500);
+    });
+
+
+     // Mobile menu toggle functionality
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const navbar = document.getElementById('navbar');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      mobileToggle.classList.toggle('active');
+      
+      // Toggle hamburger/close icon
+      if (mobileMenu.classList.contains('active')) {
+        toggleIcon.classList.remove('fa-bars');
+        toggleIcon.classList.add('fa-times');
+      } else {
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Mobile dropdown toggle functionality
+    function toggleMobileDropdown(event, dropdownId) {
+      event.preventDefault();
+      const dropdown = document.getElementById(dropdownId);
+      const arrow = event.currentTarget.querySelector('.dropdown-arrow');
+      
+      // Close other dropdowns
+      document.querySelectorAll('.mobile-dropdown').forEach(item => {
+        if (item.id !== dropdownId) {
+          item.classList.remove('active');
+        }
+      });
+      
+      document.querySelectorAll('.mobile-nav-link .dropdown-arrow').forEach(item => {
+        if (item !== arrow) {
+          item.style.transform = 'rotate(0deg)';
+        }
+      });
+      
+      // Toggle current dropdown
+      dropdown.classList.toggle('active');
+      
+      if (dropdown.classList.contains('active')) {
+        arrow.style.transform = 'rotate(180deg)';
+      } else {
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!mobileMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) {
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Desktop dropdown hover enhancement
+    document.querySelectorAll('.nav-item').forEach(item => {
+      const dropdown = item.querySelector('.dropdown');
+      if (dropdown) {
+        let hoverTimer;
+        
+        item.addEventListener('mouseenter', () => {
+          clearTimeout(hoverTimer);
+          item.classList.add('active');
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          hoverTimer = setTimeout(() => {
+            item.classList.remove('active');
+          }, 150);
+        });
+      }
+    });
+
+    // Keyboard navigation support
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        // Close mobile menu on Escape
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+        
+        // Close all mobile dropdowns
+        document.querySelectorAll('.mobile-dropdown').forEach(dropdown => {
+          dropdown.classList.remove('active');
+        });
+        
+        document.querySelectorAll('.mobile-nav-link .dropdown-arrow').forEach(arrow => {
+          arrow.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+
+
+
+    // Job filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const jobItems = document.querySelectorAll('.job-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        jobItems.forEach(item => {
+          if (filter === 'all' || item.dataset.category === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Application form submission
+    document.getElementById('applicationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      const submitBtn = this.querySelector('.submit-btn');
+      const originalText = submitBtn.innerHTML;
+      
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      submitBtn.disabled = true;
+      
+      // Simulate API call
+      setTimeout(() => {
+        // Show success message
+        const successMessage = document.getElementById('successMessage');
+        successMessage.classList.add('show');
+        
+        // Reset form
+        this.reset();
+        
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // Hide success message after 7 seconds
+        setTimeout(() => {
+          successMessage.classList.remove('show');
+        }, 7000);
+        
+        // Log form data (in real implementation, send to server)
+        console.log('Application submitted:', data);
+        
+      }, 2500);
+    });
+
+    // FAQ accordion functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        // Close other FAQ items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+        
+        // Toggle current item
+        item.classList.toggle('active');
+      });
+    });
+
+    // Smooth scroll to application form
+    function scrollToApplication() {
+      document.getElementById('application').scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+    // File upload label update
+    document.getElementById('resume').addEventListener('change', function(e) {
+      const fileName = e.target.files[0]?.name;
+      const label = this.nextElementSibling.querySelector('span');
+      
+      if (fileName) {
+        label.textContent = `Selected: ${fileName}`;
+      } else {
+        label.textContent = 'Click to upload your resume (PDF, DOC, DOCX)';
+      }
+    });
+
+    // Parallax effect for hero background
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero-section');
+      if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+      }
+    });
+
+    // Animate elements on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.culture-card, .job-item, .benefit-item, .faq-item').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+
+    // Input focus effects
+    document.querySelectorAll('input, select, textarea').forEach(input => {
+      input.addEventListener('focus', function() {
+        this.parentElement.style.transform = 'translateY(-2px)';
+      });
+      
+      input.addEventListener('blur', function() {
+        this.parentElement.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+</body>
+
+</html>

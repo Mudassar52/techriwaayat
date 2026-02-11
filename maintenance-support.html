@@ -1,0 +1,2795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maintenance & Support Services - TechRiwaayat</title>
+  <meta name="description" content="TechRiwaayat offers expert website maintenance and support services in Pakistan including security monitoring, updates, bug fixing, and ongoing technical support for businesses.">
+  <link rel="icon" type="image/jpeg" sizes="16x16" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="64x64" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="128x128" href="./assets/logo.png">
+  <meta name="description" content="Professional website maintenance and technical support services by Screw Tech. Keep your digital assets secure, updated, and performing optimally with 24/7 support.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      background: #f8fafc;
+      overflow-x: hidden;
+    }
+
+
+    
+
+
+
+     
+    /* Navigation Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #1f2937;
+      font-weight: 700;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+    }
+
+    .logo-text {
+      font-size: 21px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Desktop Navigation */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      background: #f3f4f6;
+      color: #7c3aed;
+      transform: translateY(-1px);
+    }
+
+    .nav-link i {
+      font-size: 14px;
+    }
+
+    .dropdown-arrow {
+      font-size: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-item.active .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 220px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1001;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 12px 20px;
+      color: #374151;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .dropdown-item:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+      background: #f8fafc;
+      color: #7c3aed;
+      padding-left: 24px;
+    }
+
+    .dropdown-item i {
+      width: 16px;
+      margin-right: 8px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    
+
+    /* Mobile Menu Toggle */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #374151;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-toggle:hover {
+      background: #f3f4f6;
+      color: #7c3aed;
+    }
+
+    .mobile-toggle.active {
+      color: #7c3aed;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: white;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 999;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      padding: 20px;
+    }
+
+    .mobile-nav-item {
+      margin-bottom: 8px;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+    }
+
+    .mobile-nav-link:hover {
+      background: #eff6ff;
+      color: #7c3aed;
+      transform: translateX(4px);
+    }
+
+    .mobile-nav-link i {
+      font-size: 16px;
+    }
+
+    .mobile-dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+
+    .mobile-dropdown.active {
+      max-height: 375px;
+      padding: 12px 0;
+    }
+
+    .mobile-dropdown-item {
+      display: block;
+      padding: 12px 24px;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      margin: 4px 12px;
+      border-radius: 6px;
+    }
+
+    .mobile-dropdown-item:hover {
+      background: #dbeafe;
+      color: #7c3aed;
+      transform: translateX(4px);
+    }
+
+    
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+    }
+
+    /* Demo Content */
+    .demo-content {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .demo-section {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .demo-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+
+    .demo-section p {
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Animation Classes */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .dropdown {
+      animation: slideDown 0.3s ease when visible;
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+
+ /* Floating SEO Icons */
+    .seo-icons {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .seo-icon {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .seo-icon i {
+      font-size: 24px;
+      color: white;
+    }
+
+    .seo-icon:nth-child(1) {
+      top: 15%;
+      left: 8%;
+      animation: floatIcon 6s ease-in-out infinite;
+    }
+
+    .seo-icon:nth-child(2) {
+      top: 25%;
+      right: 12%;
+      animation: floatIcon 8s ease-in-out infinite reverse;
+    }
+
+    .seo-icon:nth-child(3) {
+      bottom: 35%;
+      left: 12%;
+      animation: floatIcon 7s ease-in-out infinite;
+    }
+
+    .seo-icon:nth-child(4) {
+      bottom: 15%;
+      right: 8%;
+      animation: floatIcon 9s ease-in-out infinite reverse;
+    }
+
+    .seo-icon:nth-child(5) {
+      top: 45%;
+      left: 5%;
+      animation: floatIcon 10s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(5deg); }
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.9;
+      animation: fadeInUp 0.8s ease 0.2s both;
+      z-index: 10;
+      position: relative;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+      animation: fadeInUp 0.8s ease 0.4s both;
+      z-index: 10;
+      position: relative;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      font-weight: 400;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      animation: fadeInUp 0.8s ease 0.6s both;
+      z-index: 10;
+      position: relative;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+      z-index: 10;
+      position: relative;
+    }
+
+    .hero-stat {
+      text-align: center;
+      animation: fadeInUp 0.8s ease 0.8s both;
+    }
+
+    .hero-stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fbbf24;
+      display: block;
+    }
+
+    .hero-stat-label {
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    /* Hero CTA */
+    .hero-cta {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      z-index: 10;
+      position: relative;
+      animation: fadeInUp 0.8s ease 1s both;
+    }
+
+    .cta-btn {
+      padding: 16px 32px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cta-primary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-secondary {
+      background: white;
+      color: #7c3aed;
+    }
+
+    .cta-secondary:hover {
+      background: #f8fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Curved Bottom */
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: #f8fafc;
+      clip-path: ellipse(100% 100% at 50% 100%);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 100px 20px;
+      position: relative;
+      background: #f8fafc;
+      z-index: 5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .service-card:hover::before {
+      left: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      border-color: rgba(124, 58, 237, 0.3);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 32px;
+      color: white;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .service-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-description {
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-features {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-features li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 12px;
+      color: #374151;
+      font-size: 14px;
+    }
+
+    .service-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    
+    /* Response Time Section */
+    .response-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      color: white;
+    }
+
+    .response-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .response-card {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .response-card:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .response-icon {
+      font-size: 48px;
+      color: #8629ff;
+      margin-bottom: 20px;
+    }
+
+    .response-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .response-time {
+      font-size: 32px;
+      font-weight: 700;
+      color: #3d3d3d;
+      margin-bottom: 8px;
+    }
+
+    .response-description {
+      font-size: 14px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* Process Section */
+    .process-section {
+      background: #f8fafc;
+    }
+
+    .process-timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 50px auto 0;
+    }
+
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .process-item {
+      position: relative;
+      margin-bottom: 50px;
+      width: 50%;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .process-item.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .process-item:nth-child(odd) {
+      left: 0;
+      padding-right: 40px;
+    }
+
+    .process-item:nth-child(even) {
+      left: 50%;
+      padding-left: 40px;
+    }
+
+    .process-content {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .process-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .process-step {
+      position: absolute;
+      top: 25px;
+      width: 30px;
+      height: 30px;
+      background: #7c3aed;
+      border: 4px solid white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      font-size: 14px;
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.3);
+    }
+
+    .process-item:nth-child(odd) .process-step {
+      right: -15px;
+    }
+
+    .process-item:nth-child(even) .process-step {
+      left: -15px;
+    }
+
+    .process-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 10px;
+    }
+
+    .process-description {
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Technologies Section */
+    .tech-section {
+      background: white;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .tech-category {
+      text-align: center;
+      padding: 30px 20px;
+      background: #f8fafc;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .tech-category:hover {
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+    }
+
+    .tech-icon {
+      font-size: 48px;
+      color: #7c3aed;
+      margin-bottom: 16px;
+    }
+
+    .tech-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 12px;
+    }
+
+    .tech-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tech-list li {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+   
+
+    /* Contact Section */
+    .contact-section {
+      background: #f8fafc;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 24px;
+      color: white;
+    }
+
+    .contact-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 12px;
+    }
+
+    .contact-info {
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+
+    .contact-btn {
+      background: #7c3aed;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .contact-btn:hover {
+      background: #6d28d9;
+      transform: translateY(-2px);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cta-subtitle {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: 70vh;
+        padding: 60px 20px;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+
+      .response-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .process-timeline::before {
+        left: 30px;
+      }
+
+      .process-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 70px !important;
+        padding-right: 20px !important;
+      }
+
+      .process-item .process-step {
+        left: 15px !important;
+        right: auto !important;
+      }
+
+      .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .contact-info-footer {
+        align-items: center;
+      }
+
+      .contact-item {
+        justify-content: center;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 30px 20px;
+      }
+
+      .process-item {
+        padding-left: 60px !important;
+      }
+    }
+
+
+
+
+    
+    /* Footer Styles */
+    .footer {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      color: white;
+      padding: 40px 90px 0;
+      margin-top: 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #a855f7;
+    }
+
+    .footer-section h4 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .footer-section p {
+      color: #ffffff;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: #a855f7;
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-link:hover {
+      background: #a855f7;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+    }
+
+    .contact-info2 {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-item2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #d1d5db;
+      font-size: 14px;
+    }
+
+    .contact-item2 i {
+      width: 20px;
+      color: #a855f7;
+      font-size: 16px;
+    }
+
+    .contact-item2 a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item2 a:hover {
+      color: #a855f7;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 24px 0;
+    }
+
+    .footer-bottom-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .copyright p {
+      color: #9ca3af;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #a855f7;
+    }
+
+    /* Footer Responsive */
+    @media (max-width: 768px) {
+      .footer {
+        padding: 40px 20px 0;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+
+      .footer-section:first-child {
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .footer-bottom-links {
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .contact-info2 {
+        align-items: center;
+      }
+
+      .contact-item2 {
+        justify-content: center;
+      }
+
+      .seo-icons{
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-content {
+        gap: 25px;
+      }
+
+      .footer-section h3 {
+        font-size: 24px;
+      }
+
+      .footer-section h4 {
+        font-size: 16px;
+      }
+
+      .social-links {
+        gap: 12px;
+      }
+
+      .social-link {
+        width: 36px;
+        height: 36px;
+      }
+
+      .footer-bottom-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+
+
+
+
+ /* Loading Overlay */
+      .pl {
+  width: 6em;
+  height: 6em;
+}
+
+.pl__ring {
+  animation: ringA 2s linear infinite;
+}
+
+.pl__ring--a {
+  stroke: #a855f7;
+}
+
+.pl__ring--b {
+  animation-name: ringB;
+  stroke: #3068f5;
+}
+
+.pl__ring--c {
+  animation-name: ringC;
+  stroke: #3068f5;
+}
+
+.pl__ring--d {
+  animation-name: ringD;
+  stroke: #a855f7;
+}
+
+/* Animations */
+@keyframes ringA {
+  from, 4% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+
+  12% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -335;
+  }
+
+  32% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -595;
+  }
+
+  40%, 54% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -660;
+  }
+
+  62% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -665;
+  }
+
+  82% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -925;
+  }
+
+  90%, to {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -990;
+  }
+}
+
+@keyframes ringB {
+  from, 12% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -110;
+  }
+
+  20% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -115;
+  }
+
+  40% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -195;
+  }
+
+  48%, 62% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  70% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  90% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -305;
+  }
+
+  98%, to {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+}
+
+@keyframes ringC {
+  from {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  8% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  28% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  36%, 58% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  66% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  86% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  94%, to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+@keyframes ringD {
+  from, 8% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  16% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  36% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  44%, 50% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  58% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  78% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  86%, to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+     .loadin-Overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .loadin-Overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+   <!-- Loading Overlay -->
+   <div class="loadin-Overlay" id="loadingOverlay">
+ <svg class="pl" width="240" height="240" viewBox="0 0 240 240">
+	<circle class="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 660" stroke-dashoffset="-330" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 220" stroke-dashoffset="-110" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+</svg>
+</div>
+
+
+ <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="./index.html" class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <span class="logo-text">TechRiwaayat</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+        </li>
+
+         <li class="nav-item">
+          <a href="./about-us.html" class="nav-link">
+            <i class="fas fa-info-circle"></i>
+            About
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="dropdown">
+            <a href="./our-team.html" class="dropdown-item">
+              <i class="fas fa-users"></i>
+              Our Team
+            </a>
+            <a href="./history.html" class="dropdown-item">
+              <i class="fas fa-history"></i>
+              Company History
+            </a>
+            <a href="./careers.html" class="dropdown-item">
+              <i class="fas fa-users-cog"></i>
+              Careers
+            </a>
+            <a href="./achievements.html" class="dropdown-item">
+              <i class="fas fa-award"></i>
+              Achievements
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./services.html" class="nav-link">
+            <i class="fas fa-cogs"></i>
+            Services
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="dropdown">
+            <a href="./web-development.html" class="dropdown-item">
+              <i class="fas fa-globe"></i>
+              Web Development
+            </a>
+            <a href="./data-services.html" class="dropdown-item">
+              <i class="fas fa-database"></i>
+              Data Service
+            </a>
+            <a href="./custom-software.html" class="dropdown-item">
+              <i class="fas fa-code"></i>
+              Custom Software
+            </a>
+            <a href="./wordpress-development.html" class="dropdown-item">
+              <i class="fab fa-wordpress"></i>
+              WordPress Development
+            </a>
+            <a href="./seo-services.html" class="dropdown-item">
+              <i class="fas fa-chart-line"></i>
+              Search engine Optimization
+            </a>
+             <a href="./digital-marketing.html" class="dropdown-item">
+              <i class="fas fa-bullhorn"></i> Digital Marketing
+            </a>
+            <a href="./maintenance-support.html" class="dropdown-item">
+              <i class="fas fa-tools"></i>
+              Maintenance & Support
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./portfolio.html" class="nav-link">
+            <i class="fas fa-briefcase"></i>
+            Portfolio
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./blog.html" class="nav-link">
+            <i class="fas fa-blog"></i>
+            Blog
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./contact-us.html" class="nav-link">
+            <i class="fas fa-envelope"></i>
+            Contact
+          </a>
+        </li>
+      </ul>
+
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle" id="mobileToggle">
+        <i class="fas fa-bars" id="toggleIcon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item">
+          <a href="./index.html" class="mobile-nav-link">
+            <span><i class="fas fa-home"></i> Home</span>
+          </a>
+        </li>
+
+        <li class="mobile-nav-item">
+          <a href="./about-us.html" class="mobile-nav-link" onclick="toggleMobileDropdown(event, 'about')">
+            <span><i class="fas fa-info-circle"></i> About</span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="mobile-dropdown" id="about">
+            <a href="./our-team.html" class="mobile-dropdown-item">
+              <i class="fas fa-users"></i> Our Team
+            </a>
+            <a href="./history.html" class="mobile-dropdown-item">
+              <i class="fas fa-history"></i> Company History
+            </a>
+            <a href="./careers.html" class="mobile-dropdown-item">
+              <i class="fas fa-users-cog"></i> Careers
+            </a>
+            <a href="./achievements.html" class="mobile-dropdown-item">
+              <i class="fas fa-award"></i> Achievements
+            </a>
+          </div>
+        </li>
+
+        
+        <li class="mobile-nav-item">
+          <a href="./services.html" class="mobile-nav-link" onclick="toggleMobileDropdown(event, 'services')">
+            <span><i class="fas fa-cogs"></i> Services</span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="mobile-dropdown" id="services">
+            <a href="./web-development.html" class="mobile-dropdown-item">
+              <i class="fas fa-globe"></i> Web Development
+            </a>
+            <a href="./data-services.html" class="mobile-dropdown-item">
+              <i class="fas fa-database"></i> Data Service
+            </a>
+            <a href="./custom-software.html" class="mobile-dropdown-item">
+              <i class="fas fa-code"></i> Custom Software
+            </a>
+            <a href="./wordpress-development.html" class="mobile-dropdown-item">
+              <i class="fab fa-wordpress"></i> WordPress Development
+            </a>
+            <a href="./seo-services.html" class="mobile-dropdown-item">
+              <i class="fas fa-chart-line"></i> Search engine Optimization
+            </a>
+            <a href="./digital-marketing.html" class="mobile-dropdown-item">
+              <i class="fas fa-bullhorn"></i> Digital Marketing
+            </a>
+            <a href="./maintenance-support.html" class="mobile-dropdown-item">
+              <i class="fas fa-tools"></i> Maintenance & Support
+            </a>
+          </div>
+        </li>
+
+
+        <li class="mobile-nav-item">
+          <a href="./portfolio.html" class="mobile-nav-link">
+            <span><i class="fas fa-briefcase"></i> Portfolio</span>
+          </a>
+        </li>
+
+
+        <li class="mobile-nav-item">
+          <a href="./blog.html" class="mobile-nav-link">
+            <span><i class="fas fa-blog"></i> Blog</span>
+          </a>
+        </li>
+
+        <li class="mobile-nav-item">
+          <a href="./contact-us.html" class="mobile-nav-link">
+            <span><i class="fas fa-envelope"></i> Contact</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="seo-icons">
+      <div class="seo-icon"><i class="fas fa-shield-alt"></i></div>
+      <div class="seo-icon"><i class="fas fa-sync-alt"></i></div>
+      <div class="seo-icon"><i class="fas fa-database"></i></div>
+      <div class="seo-icon"><i class="fas fa-bug"></i></div>
+      <div class="seo-icon"><i class="fas fa-tachometer-alt"></i></div>
+    </div>
+    <div class="brand">TechRiwaayat</div>
+    <h1 class="hero-title">Maintenance & Support</h1>
+    <div class="hero-subtitle">Keep your digital assets secure, updated, and performing at their best with our comprehensive maintenance and 24/7 technical support services.</div>
+    
+    <div class="hero-cta">
+      <a href="#plans" class="cta-btn cta-primary">
+        <span>View Support Plans</span>
+        <i class="fas fa-arrow-down"></i>
+      </a>
+      <a href="#contact" class="cta-btn cta-secondary">
+        <span>Get Emergency Support</span>
+        <i class="fas fa-phone"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section" style="background: white;">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Our Maintenance Services</h2>
+        <p class="section-subtitle">Comprehensive support solutions to keep your digital presence running smoothly</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="service-title">Security Monitoring</h3>
+          <p class="service-description">Advanced security monitoring and threat detection to protect your website from cyber attacks and vulnerabilities.</p>
+          <ul class="service-features">
+            <li>Real-time malware scanning</li>
+            <li>Security patch updates</li>
+            <li>SSL certificate management</li>
+            <li>Firewall configuration</li>
+            <li>Vulnerability assessments</li>
+            <li>Security incident response</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+          <h3 class="service-title">Regular Updates</h3>
+          <p class="service-description">Keep your website current with latest software updates, plugin updates, and security patches.</p>
+          <ul class="service-features">
+            <li>CMS core updates</li>
+            <li>Plugin & theme updates</li>
+            <li>Database optimization</li>
+            <li>Content updates</li>
+            <li>Feature enhancements</li>
+            <li>Compatibility testing</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3 class="service-title">Backup Solutions</h3>
+          <p class="service-description">Automated backup systems to ensure your data is always safe and recoverable in case of any issues.</p>
+          <ul class="service-features">
+            <li>Automated daily backups</li>
+            <li>Cloud storage solutions</li>
+            <li>One-click restore options</li>
+            <li>Database backup & recovery</li>
+            <li>File integrity monitoring</li>
+            <li>Disaster recovery planning</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <h3 class="service-title">Performance Optimization</h3>
+          <p class="service-description">Continuous monitoring and optimization to ensure your website loads fast and performs efficiently.</p>
+          <ul class="service-features">
+            <li>Speed optimization</li>
+            <li>Image compression</li>
+            <li>Caching implementation</li>
+            <li>CDN configuration</li>
+            <li>Database optimization</li>
+            <li>Performance monitoring</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-bug"></i>
+          </div>
+          <h3 class="service-title">Bug Fixes & Troubleshooting</h3>
+          <p class="service-description">Quick identification and resolution of technical issues to minimize downtime and maintain user experience.</p>
+          <ul class="service-features">
+            <li>Issue diagnosis & resolution</li>
+            <li>Error monitoring</li>
+            <li>Compatibility fixes</li>
+            <li>Browser testing</li>
+            <li>Mobile responsiveness</li>
+            <li>Code debugging</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3 class="service-title">24/7 Technical Support</h3>
+          <p class="service-description">Round-the-clock technical support to address any urgent issues and provide assistance when you need it most.</p>
+          <ul class="service-features">
+            <li>24/7 emergency support</li>
+            <li>Multiple contact channels</li>
+            <li>Priority ticket system</li>
+            <li>Live chat support</li>
+            <li>Phone support</li>
+            <li>Remote assistance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <!-- Response Time Section -->
+  <section class="section response-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Our Response Times</h2>
+        <p class="section-subtitle" style="color: rgb(255, 255, 255);">Fast, reliable support when you need it most</p>
+      </div>
+      
+      <div class="response-grid">
+        <div class="response-card animate-on-scroll">
+          <div class="response-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <h3 class="response-title">Emergency Issues</h3>
+          <div class="response-time">< 15 min</div>
+          <p class="response-description">Critical issues affecting website availability or security are addressed immediately with priority response.</p>
+        </div>
+
+        <div class="response-card animate-on-scroll">
+          <div class="response-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3 class="response-title">Standard Support</h3>
+          <div class="response-time">< 1 hour</div>
+          <p class="response-description">Regular support requests and technical issues receive prompt attention within business hours.</p>
+        </div>
+
+        <div class="response-card animate-on-scroll">
+          <div class="response-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3 class="response-title">Maintenance Tasks</h3>
+          <div class="response-time">< 24 hours</div>
+          <p class="response-description">Routine maintenance, updates, and non-urgent modifications are completed within one business day.</p>
+        </div>
+
+        <div class="response-card animate-on-scroll">
+          <div class="response-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3 class="response-title">Scheduled Updates</h3>
+          <div class="response-time">Weekly</div>
+          <p class="response-description">Regular security updates, backups, and system maintenance performed on scheduled basis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">How We Work</h2>
+        <p class="section-subtitle">Our systematic approach to maintenance and support</p>
+      </div>
+      
+      <div class="process-timeline">
+        <div class="process-item">
+          <div class="process-step">1</div>
+          <div class="process-content">
+            <h3 class="process-title">Initial Assessment</h3>
+            <p class="process-description">We thoroughly analyze your website's current state, identify potential issues, and create a customized maintenance plan.</p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-step">2</div>
+          <div class="process-content">
+            <h3 class="process-title">Setup & Configuration</h3>
+            <p class="process-description">Install monitoring tools, configure backup systems, and set up security measures to protect your website.</p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-step">3</div>
+          <div class="process-content">
+            <h3 class="process-title">Regular Monitoring</h3>
+            <p class="process-description">Continuous monitoring of your website's performance, security, and functionality with automated alerts.</p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-step">4</div>
+          <div class="process-content">
+            <h3 class="process-title">Proactive Maintenance</h3>
+            <p class="process-description">Regular updates, optimizations, and preventive measures to keep your website running smoothly.</p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-step">5</div>
+          <div class="process-content">
+            <h3 class="process-title">Issue Resolution</h3>
+            <p class="process-description">Quick identification and resolution of any issues that arise, minimizing downtime and impact.</p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-step">6</div>
+          <div class="process-content">
+            <h3 class="process-title">Reporting & Communication</h3>
+            <p class="process-description">Regular reports on website performance, security status, and maintenance activities performed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies Section -->
+  <section class="section tech-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Technologies We Support</h2>
+        <p class="section-subtitle">Expert maintenance for all major platforms and technologies</p>
+      </div>
+      
+      <div class="tech-grid">
+        <div class="tech-category animate-on-scroll">
+          <div class="tech-icon">
+            <i class="fab fa-wordpress"></i>
+          </div>
+          <h3 class="tech-title">CMS Platforms</h3>
+          <ul class="tech-list">
+            <li>WordPress</li>
+            <li>Drupal</li>
+            <li>Joomla</li>
+            <li>Magento</li>
+            <li>Shopify</li>
+          </ul>
+        </div>
+
+        <div class="tech-category animate-on-scroll">
+          <div class="tech-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="tech-title">Web Technologies</h3>
+          <ul class="tech-list">
+            <li>HTML/CSS/JS</li>
+            <li>PHP</li>
+            <li>Node.js</li>
+            <li>React</li>
+            <li>Vue.js</li>
+          </ul>
+        </div>
+
+        <div class="tech-category animate-on-scroll">
+          <div class="tech-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3 class="tech-title">Databases</h3>
+          <ul class="tech-list">
+            <li>MySQL</li>
+            <li>PostgreSQL</li>
+            <li>MongoDB</li>
+            <li>Redis</li>
+            <li>SQLite</li>
+          </ul>
+        </div>
+
+        <div class="tech-category animate-on-scroll">
+          <div class="tech-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3 class="tech-title">Hosting Platforms</h3>
+          <ul class="tech-list">
+            <li>AWS</li>
+            <li>Google Cloud</li>
+            <li>DigitalOcean</li>
+            <li>cPanel</li>
+            <li>WHM</li>
+          </ul>
+        </div>
+
+        <div class="tech-category animate-on-scroll">
+          <div class="tech-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="tech-title">Security Tools</h3>
+          <ul class="tech-list">
+            <li>Wordfence</li>
+            <li>Sucuri</li>
+            <li>Cloudflare</li>
+            <li>SSL Certificates</li>
+            <li>Firewalls</li>
+          </ul>
+        </div>
+
+        <div class="tech-category animate-on-scroll">
+          <div class="tech-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="tech-title">Monitoring Tools</h3>
+          <ul class="tech-list">
+            <li>Google Analytics</li>
+            <li>GTmetrix</li>
+            <li>Pingdom</li>
+            <li>New Relic</li>
+            <li>Uptime Robot</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Get Support Now</h2>
+        <p class="section-subtitle">Multiple ways to reach our support team</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-card animate-on-scroll">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h3 class="contact-title">Emergency Phone</h3>
+          <div class="contact-info">For critical issues requiring immediate attention</div>
+          <a href="tel:+923287458137" class="contact-btn">+92 328 7458137</a>
+        </div>
+
+        <div class="contact-card animate-on-scroll">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3 class="contact-title">Email Support</h3>
+          <div class="contact-info">For general support and non-urgent issues</div>
+          <a href="mailto:support@screwtech.com" class="contact-btn">mudassar523r@gmail.com</a>
+        </div>
+
+        <div class="contact-card animate-on-scroll">
+          <div class="contact-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3 class="contact-title">Live Chat</h3>
+          <div class="contact-info">Chat with our support team in real-time</div>
+          <a href="#" class="contact-btn">Start Chat</a>
+        </div>
+
+        <div class="contact-card animate-on-scroll">
+          <div class="contact-icon">
+            <i class="fas fa-ticket-alt"></i>
+          </div>
+          <h3 class="contact-title">Support Portal</h3>
+          <div class="contact-info">Submit tickets and track support requests</div>
+          <a href="#" class="contact-btn">Open Portal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content animate-on-scroll">
+        <h2 class="cta-title">Protect Your Digital Investment</h2>
+        <p class="cta-subtitle">Don't wait for problems to occur. Get proactive maintenance and support to keep your website secure and performing at its best.</p>
+        <div class="hero-cta">
+          <a href="./contact-us.html" class="cta-btn cta-primary">
+            <span>Start Maintenance Plan</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="tel:+923287458137" class="cta-btn cta-secondary">
+            <span>Get Emergency Support</span>
+            <i class="fas fa-phone"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">
+            <h3>TechRiwaayat</h3>
+            <p>Professional data processing and web development solutions that drive business growth.</p>
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="./web-development.html"> Custom Web Development</a></li>
+            <li><a href="./wordpress-development.html">WordPress Development</a></li>
+            <li><a href="./data-services.html">Data Entry Services</a></li>
+            <li><a href="./data-services.html">Web Scraping</a></li>
+            <li><a href="./seo-services.html">Seo Services</a></li>
+            <li><a href="./custom-software.html">Software Development</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="./about-us.html">About Us</a></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><a href="./portfolio.html">Portfolio</a></li>
+             <li><a href="./services.html">Services</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <div class="contact-info2">
+            <div class="contact-item2">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Lahore, Punjab, Pakistan</span>
+            </div>
+            <div class="contact-item2">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+923287458137">+92 328 7458137</a>
+            </div>
+            <div class="contact-item2">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:mudassar523r@gmail.com">mudassar523r@gmail.com</a>
+            </div>
+            <div class="contact-item2">
+              <i class="fas fa-clock"></i>
+              <span>24/7 Available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <div class="copyright">
+            <p>&copy; 2025 TechRiwaayat. All rights reserved.</p>
+          </div>
+          <div class="footer-bottom-links">
+            <a href="./privacy-policy.html">Privacy Policy</a>
+            <a href="./terms-of-service.html">Terms of Service</a>
+            <a href="./cookie-policy.html">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+
+     // Loading overlay
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loadingOverlay').classList.add('hidden');
+      }, 1500);
+    });
+
+
+        
+     // Mobile menu toggle functionality
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const navbar = document.getElementById('navbar');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      mobileToggle.classList.toggle('active');
+      
+      // Toggle hamburger/close icon
+      if (mobileMenu.classList.contains('active')) {
+        toggleIcon.classList.remove('fa-bars');
+        toggleIcon.classList.add('fa-times');
+      } else {
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Mobile dropdown toggle functionality
+    function toggleMobileDropdown(event, dropdownId) {
+      event.preventDefault();
+      const dropdown = document.getElementById(dropdownId);
+      const arrow = event.currentTarget.querySelector('.dropdown-arrow');
+      
+      // Close other dropdowns
+      document.querySelectorAll('.mobile-dropdown').forEach(item => {
+        if (item.id !== dropdownId) {
+          item.classList.remove('active');
+        }
+      });
+      
+      document.querySelectorAll('.mobile-nav-link .dropdown-arrow').forEach(item => {
+        if (item !== arrow) {
+          item.style.transform = 'rotate(0deg)';
+        }
+      });
+      
+      // Toggle current dropdown
+      dropdown.classList.toggle('active');
+      
+      if (dropdown.classList.contains('active')) {
+        arrow.style.transform = 'rotate(180deg)';
+      } else {
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!mobileMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) {
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Desktop dropdown hover enhancement
+    document.querySelectorAll('.nav-item').forEach(item => {
+      const dropdown = item.querySelector('.dropdown');
+      if (dropdown) {
+        let hoverTimer;
+        
+        item.addEventListener('mouseenter', () => {
+          clearTimeout(hoverTimer);
+          item.classList.add('active');
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          hoverTimer = setTimeout(() => {
+            item.classList.remove('active');
+          }, 150);
+        });
+      }
+    });
+
+    // Keyboard navigation support
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        // Close mobile menu on Escape
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+        
+        // Close all mobile dropdowns
+        document.querySelectorAll('.mobile-dropdown').forEach(dropdown => {
+          dropdown.classList.remove('active');
+        });
+        
+        document.querySelectorAll('.mobile-nav-link .dropdown-arrow').forEach(arrow => {
+          arrow.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+
+
+
+
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Process timeline animation
+    const processObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.process-item').forEach(el => {
+      processObserver.observe(el);
+    });
+
+    // Service cards hover effects
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        const icon = this.querySelector('.service-icon');
+        icon.style.transform = 'scale(1.1) rotate(5deg)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        const icon = this.querySelector('.service-icon');
+        icon.style.transform = 'scale(1) rotate(0deg)';
+      });
+    });
+
+    // Plan cards interactive effects
+    document.querySelectorAll('.plan-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.classList.contains('plan-btn')) return;
+        
+        // Add selection effect
+        document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
+
+    // Add selection styles
+    const selectionStyle = document.createElement('style');
+    selectionStyle.textContent = `
+      .plan-card.selected {
+        border-color: #7c3aed !important;
+        box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.2) !important;
+      }
+    `;
+    document.head.appendChild(selectionStyle);
+
+    // Response cards animation
+    document.querySelectorAll('.response-card').forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // Tech category hover effects
+    document.querySelectorAll('.tech-category').forEach(category => {
+      category.addEventListener('mouseenter', function() {
+        const icon = this.querySelector('.tech-icon');
+        icon.style.transform = 'scale(1.1) rotate(10deg)';
+        icon.style.color = '#a855f7';
+      });
+      
+      category.addEventListener('mouseleave', function() {
+        const icon = this.querySelector('.tech-icon');
+        icon.style.transform = 'scale(1) rotate(0deg)';
+        icon.style.color = '#7c3aed';
+      });
+    });
+
+    // Contact cards click effects
+    document.querySelectorAll('.contact-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const btn = this.querySelector('.contact-btn');
+        if (btn) {
+          btn.click();
+        }
+      });
+    });
+
+    // Add loading effect to contact buttons
+    document.querySelectorAll('.contact-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (this.href && (this.href.includes('tel:') || this.href.includes('mailto:'))) {
+          return; // Allow normal behavior for tel and mailto links
+        }
+        
+        e.preventDefault();
+        const originalContent = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connecting...';
+        this.style.pointerEvents = 'none';
+        
+        // Simulate connection (remove this in production)
+        setTimeout(() => {
+          this.innerHTML = originalContent;
+          this.style.pointerEvents = 'auto';
+          alert('Support feature coming soon!');
+        }, 1500);
+      });
+    });
+
+    // Testimonial cards stagger animation
+    const testimonialObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('animated');
+          }, index * 200);
+          testimonialObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.testimonial-card').forEach(el => {
+      testimonialObserver.observe(el);
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add pulse animation for emergency contact
+    const emergencyBtn = document.querySelector('a[href="tel:+923287458137"]');
+    if (emergencyBtn) {
+      emergencyBtn.style.animation = 'pulse 2s infinite';
+    }
+
+    // Add pulse keyframe
+    const pulseStyle = document.createElement('style');
+    pulseStyle.textContent = `
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
+        50% { box-shadow: 0 0 0 10px rgba(124, 58, 237, 0.1); }
+        100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+      }
+    `;
+    document.head.appendChild(pulseStyle);
+
+    // Hero stats counter animation
+    function animateStats() {
+      const stats = document.querySelectorAll('.hero-stat-number');
+      stats.forEach(stat => {
+        const text = stat.textContent;
+        if (text.includes('99.9%')) {
+          animateCounter(stat, 99.9, 2000, '%');
+        } else if (text.includes('24/7')) {
+          // Keep as is for 24/7
+          return;
+        } else if (text.includes('< 1hr')) {
+          // Keep as is for response time
+          return;
+        }
+      });
+    }
+
+    function animateCounter(element, target, duration, suffix = '') {
+      const start = 0;
+      const increment = target / (duration / 16);
+      let current = start;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if (suffix === '%') {
+          element.textContent = current.toFixed(1) + '%';
+        } else {
+          element.textContent = Math.floor(current) + suffix;
+        }
+        
+        if (current >= target) {
+          element.textContent = target + suffix;
+          clearInterval(timer);
+        }
+      }, 16);
+    }
+
+    // Trigger stats animation when hero section is visible
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(animateStats, 1000);
+          heroObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+      heroObserver.observe(heroSection);
+    }
+
+
+    // Add status indicator after page loads
+    setTimeout(addMaintenanceStatus, 2000);
+
+    // Performance monitoring
+    window.addEventListener('load', () => {
+      console.log('🔧 Maintenance & Support page loaded successfully!');
+      console.log(`⚡ Page load time: ${performance.now().toFixed(2)}ms`);
+    });
+
+    // Keyboard shortcuts for support
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey || e.metaKey) {
+        switch(e.key) {
+          case 'h':
+            e.preventDefault();
+            document.querySelector('.hero-section').scrollIntoView({ behavior: 'smooth' });
+            break;
+          case 'p':
+            e.preventDefault();
+            document.querySelector('#plans').scrollIntoView({ behavior: 'smooth' });
+            break;
+          case 'c':
+            e.preventDefault();
+            document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+            break;
+        }
+      }
+    });
+
+    // Add emergency support notification
+    function showEmergencyNotification() {
+      const notification = document.createElement('div');
+      notification.innerHTML = `
+        <div style="
+          position: fixed;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: rgba(239, 68, 68, 0.95);
+          color: white;
+          padding: 16px 24px;
+          border-radius: 12px;
+          font-weight: 600;
+          z-index: 1001;
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          animation: slideInDown 0.5s ease;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        ">
+          <i class="fas fa-exclamation-triangle" style="margin-right: 8px;"></i>
+          Emergency? Call us now: +92 328 7458137
+          <button onclick="this.parentElement.parentElement.remove()" style="
+            background: none;
+            border: none;
+            color: white;
+            margin-left: 16px;
+            cursor: pointer;
+            font-size: 16px;
+          ">×</button>
+        </div>
+      `;
+      
+      const slideDownStyle = document.createElement('style');
+      slideDownStyle.textContent = `
+        @keyframes slideInDown {
+          from {
+            transform: translateX(-50%) translateY(-100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+          }
+        }
+      `;
+      document.head.appendChild(slideDownStyle);
+      document.body.appendChild(notification);
+      
+      // Auto-remove after 10 seconds
+      setTimeout(() => {
+        if (notification.parentElement) {
+          notification.remove();
+        }
+      }, 10000);
+    }
+
+    // Show emergency notification for visitors from search engines
+    if (document.referrer.includes('google.') || document.referrer.includes('bing.')) {
+      setTimeout(showEmergencyNotification, 3000);
+    }
+
+    // Add interactive plan comparison
+    document.querySelectorAll('.plan-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        // Dim other cards
+        document.querySelectorAll('.plan-card').forEach(c => {
+          if (c !== this) {
+            c.style.opacity = '0.7';
+          }
+        });
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        // Restore all cards
+        document.querySelectorAll('.plan-card').forEach(c => {
+          c.style.opacity = '1';
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

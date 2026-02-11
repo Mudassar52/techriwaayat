@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our History - TechRiwaayat</title>
+  <meta name="description" content="Discover the history of TechRiwaayat, a leading IT company delivering web development, WordPress solutions, SEO, digital marketing, and IT services to help businesses grow online.">
+   <link rel="icon" type="image/jpeg" sizes="16x16" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="64x64" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="128x128" href="./assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      background: #f8fafc;
+      overflow-x: hidden;
+    }
+
+
+
+    
+
+     /* Navigation Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #1f2937;
+      font-weight: 700;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+    }
+
+    .logo-text {
+      font-size: 21px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Desktop Navigation */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      background: #f3f4f6;
+      color: #7c3aed;
+      transform: translateY(-1px);
+    }
+
+    .nav-link i {
+      font-size: 14px;
+    }
+
+    .dropdown-arrow {
+      font-size: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-item.active .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 220px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1001;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 12px 20px;
+      color: #374151;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .dropdown-item:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+      background: #f8fafc;
+      color: #7c3aed;
+      padding-left: 24px;
+    }
+
+    .dropdown-item i {
+      width: 16px;
+      margin-right: 8px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    
+
+    /* Mobile Menu Toggle */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #374151;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-toggle:hover {
+      background: #f3f4f6;
+      color: #7c3aed;
+    }
+
+    .mobile-toggle.active {
+      color: #7c3aed;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: white;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 999;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      padding: 20px;
+    }
+
+    .mobile-nav-item {
+      margin-bottom: 8px;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+    }
+
+    .mobile-nav-link:hover {
+      background: #eff6ff;
+      color: #7c3aed;
+      transform: translateX(4px);
+    }
+
+    .mobile-nav-link i {
+      font-size: 16px;
+    }
+
+    .mobile-dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+
+    .mobile-dropdown.active {
+      max-height: 375px;
+      padding: 12px 0;
+    }
+
+    .mobile-dropdown-item {
+      display: block;
+      padding: 12px 24px;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      margin: 4px 12px;
+      border-radius: 6px;
+    }
+
+    .mobile-dropdown-item:hover {
+      background: #dbeafe;
+      color: #7c3aed;
+      transform: translateX(4px);
+    }
+
+    
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+    }
+
+    /* Demo Content */
+    .demo-content {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .demo-section {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .demo-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+
+    .demo-section p {
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Animation Classes */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .dropdown {
+      animation: slideDown 0.3s ease when visible;
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+
+
+
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(5deg); }
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.9;
+      animation: fadeInUp 0.8s ease 0.2s both;
+      z-index: 10;
+      position: relative;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+      animation: fadeInUp 0.8s ease 0.4s both;
+      z-index: 10;
+      position: relative;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      font-weight: 400;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      animation: fadeInUp 0.8s ease 0.6s both;
+      z-index: 10;
+      position: relative;
+    }
+
+    /* Curved Bottom */
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: #f8fafc;
+      clip-path: ellipse(100% 100% at 50% 100%);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 100px 20px;
+      position: relative;
+      background: #f8fafc;
+      z-index: 5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Timeline Styles */
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 60px;
+      width: 50%;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
+    }
+
+    .timeline-item.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      padding-right: 50px;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      padding-left: 50px;
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::after {
+      content: '';
+      position: absolute;
+      top: 30px;
+      right: -15px;
+      width: 0;
+      height: 0;
+      border: 15px solid transparent;
+      border-left-color: white;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::after {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: -15px;
+      width: 0;
+      height: 0;
+      border: 15px solid transparent;
+      border-right-color: white;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      top: 30px;
+      width: 20px;
+      height: 20px;
+      background: #7c3aed;
+      border: 4px solid white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.3);
+      z-index: 10;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-marker {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-marker {
+      left: -10px;
+    }
+
+    .timeline-year {
+      font-size: 24px;
+      font-weight: 700;
+      color: #7c3aed;
+      margin-bottom: 10px;
+    }
+
+    .timeline-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 15px;
+    }
+
+    .timeline-description {
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .timeline-highlights {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline-highlights li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 8px;
+      color: #374151;
+      font-size: 14px;
+    }
+
+    .timeline-highlights li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      color: white;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: clamp(36px, 5vw, 48px);
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    /* Vision Section */
+    .vision-section {
+      background: white;
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .vision-card {
+      background: #f8fafc;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .vision-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: rgba(124, 58, 237, 0.3);
+    }
+
+    .vision-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 32px;
+      color: white;
+    }
+
+    .vision-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 15px;
+    }
+
+    .vision-description {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* Team Journey Section */
+    .team-section {
+      background: #f8fafc;
+    }
+
+    .team-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .team-stat-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .team-stat-icon {
+      font-size: 48px;
+      color: #7c3aed;
+      margin-bottom: 20px;
+    }
+
+    .team-stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 10px;
+    }
+
+    .team-stat-label {
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cta-subtitle {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      padding: 16px 32px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cta-primary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-secondary {
+      background: white;
+      color: #7c3aed;
+    }
+
+    .cta-secondary:hover {
+      background: #f8fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+   
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: 60vh;
+        padding: 60px 20px;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .timeline::before {
+        left: 30px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 70px !important;
+        padding-right: 20px !important;
+      }
+
+      .timeline-item .timeline-marker {
+        left: 20px !important;
+        right: auto !important;
+      }
+
+      .timeline-item .timeline-content::after {
+        display: none;
+      }
+
+      .vision-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .team-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .team-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .timeline-item {
+        padding-left: 60px !important;
+      }
+
+      .vision-card {
+        padding: 30px 20px;
+      }
+    }
+
+
+        /* Footer Styles */
+    .footer {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      color: white;
+      padding: 40px 90px 0;
+      margin-top: 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #a855f7;
+    }
+
+    .footer-section h4 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .footer-section p {
+      color: #ffffff;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: #a855f7;
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-link:hover {
+      background: #a855f7;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #d1d5db;
+      font-size: 14px;
+    }
+
+    .contact-item i {
+      width: 20px;
+      color: #a855f7;
+      font-size: 16px;
+    }
+
+    .contact-item a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #a855f7;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 24px 0;
+    }
+
+    .footer-bottom-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .copyright p {
+      color: #9ca3af;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #a855f7;
+    }
+
+    /* Footer Responsive */
+    @media (max-width: 768px) {
+      .footer {
+        padding: 40px 20px 0;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+
+      .footer-section:first-child {
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .footer-bottom-links {
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .contact-info {
+        align-items: center;
+      }
+
+      .contact-item {
+        justify-content: center;
+      }
+
+      .seo-icons{
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-content {
+        gap: 25px;
+      }
+
+      .footer-section h3 {
+        font-size: 24px;
+      }
+
+      .footer-section h4 {
+        font-size: 16px;
+      }
+
+      .social-links {
+        gap: 12px;
+      }
+
+      .social-link {
+        width: 36px;
+        height: 36px;
+      }
+
+      .footer-bottom-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+
+    
+      /* Floating SEO Icons */
+    .seo-icons {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .seo-icon {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .seo-icon i {
+      font-size: 24px;
+      color: white;
+    }
+
+    .seo-icon:nth-child(1) {
+      top: 15%;
+      left: 8%;
+      animation: floatIcon 6s ease-in-out infinite;
+    }
+
+    .seo-icon:nth-child(2) {
+      top: 25%;
+      right: 12%;
+      animation: floatIcon 8s ease-in-out infinite reverse;
+    }
+
+    .seo-icon:nth-child(3) {
+      bottom: 35%;
+      left: 12%;
+      animation: floatIcon 7s ease-in-out infinite;
+    }
+
+    .seo-icon:nth-child(4) {
+      bottom: 15%;
+      right: 8%;
+      animation: floatIcon 9s ease-in-out infinite reverse;
+    }
+
+    .seo-icon:nth-child(5) {
+      top: 45%;
+      left: 5%;
+      animation: floatIcon 10s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+
+
+
+ /* Loading Overlay */
+      .pl {
+  width: 6em;
+  height: 6em;
+}
+
+.pl__ring {
+  animation: ringA 2s linear infinite;
+}
+
+.pl__ring--a {
+  stroke: #a855f7;
+}
+
+.pl__ring--b {
+  animation-name: ringB;
+  stroke: #3068f5;
+}
+
+.pl__ring--c {
+  animation-name: ringC;
+  stroke: #3068f5;
+}
+
+.pl__ring--d {
+  animation-name: ringD;
+  stroke: #a855f7;
+}
+
+/* Animations */
+@keyframes ringA {
+  from, 4% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+
+  12% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -335;
+  }
+
+  32% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -595;
+  }
+
+  40%, 54% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -660;
+  }
+
+  62% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -665;
+  }
+
+  82% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -925;
+  }
+
+  90%, to {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -990;
+  }
+}
+
+@keyframes ringB {
+  from, 12% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -110;
+  }
+
+  20% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -115;
+  }
+
+  40% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -195;
+  }
+
+  48%, 62% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  70% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  90% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -305;
+  }
+
+  98%, to {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+}
+
+@keyframes ringC {
+  from {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  8% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  28% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  36%, 58% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  66% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  86% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  94%, to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+@keyframes ringD {
+  from, 8% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  16% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  36% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  44%, 50% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  58% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  78% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  86%, to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+     .loadin-Overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .loadin-Overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+   <!-- Loading Overlay -->
+   <div class="loadin-Overlay" id="loadingOverlay">
+ <svg class="pl" width="240" height="240" viewBox="0 0 240 240">
+	<circle class="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 660" stroke-dashoffset="-330" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 220" stroke-dashoffset="-110" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+</svg>
+</div>
+
+ <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="./index.html" class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <span class="logo-text">TechRiwaayat</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+        </li>
+
+         <li class="nav-item">
+          <a href="./about-us.html" class="nav-link">
+            <i class="fas fa-info-circle"></i>
+            About
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="dropdown">
+            <a href="./our-team.html" class="dropdown-item">
+              <i class="fas fa-users"></i>
+              Our Team
+            </a>
+            <a href="./history.html" class="dropdown-item">
+              <i class="fas fa-history"></i>
+              Company History
+            </a>
+            <a href="./careers.html" class="dropdown-item">
+              <i class="fas fa-users-cog"></i>
+              Careers
+            </a>
+            <a href="./achievements.html" class="dropdown-item">
+              <i class="fas fa-award"></i>
+              Achievements
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./services.html" class="nav-link">
+            <i class="fas fa-cogs"></i>
+            Services
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="dropdown">
+            <a href="./web-development.html" class="dropdown-item">
+              <i class="fas fa-globe"></i>
+              Web Development
+            </a>
+            <a href="./data-services.html" class="dropdown-item">
+              <i class="fas fa-database"></i>
+              Data Service
+            </a>
+            <a href="./custom-software.html" class="dropdown-item">
+              <i class="fas fa-code"></i>
+              Custom Software
+            </a>
+            <a href="./wordpress-development.html" class="dropdown-item">
+              <i class="fab fa-wordpress"></i>
+              WordPress Development
+            </a>
+            <a href="./seo-services.html" class="dropdown-item">
+              <i class="fas fa-chart-line"></i>
+              Search engine Optimization
+            </a>
+             <a href="./digital-marketing.html" class="dropdown-item">
+              <i class="fas fa-bullhorn"></i> Digital Marketing
+            </a>
+            <a href="./maintenance-support.html" class="dropdown-item">
+              <i class="fas fa-tools"></i>
+              Maintenance & Support
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./portfolio.html" class="nav-link">
+            <i class="fas fa-briefcase"></i>
+            Portfolio
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./blog.html" class="nav-link">
+            <i class="fas fa-blog"></i>
+            Blog
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./contact-us.html" class="nav-link">
+            <i class="fas fa-envelope"></i>
+            Contact
+          </a>
+        </li>
+      </ul>
+
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle" id="mobileToggle">
+        <i class="fas fa-bars" id="toggleIcon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item">
+          <a href="./index.html" class="mobile-nav-link">
+            <span><i class="fas fa-home"></i> Home</span>
+          </a>
+        </li>
+
+        <li class="mobile-nav-item">
+          <a href="./about-us.html" class="mobile-nav-link" onclick="toggleMobileDropdown(event, 'about')">
+            <span><i class="fas fa-info-circle"></i> About</span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="mobile-dropdown" id="about">
+            <a href="./our-team.html" class="mobile-dropdown-item">
+              <i class="fas fa-users"></i> Our Team
+            </a>
+            <a href="./history.html" class="mobile-dropdown-item">
+              <i class="fas fa-history"></i> Company History
+            </a>
+            <a href="./careers.html" class="mobile-dropdown-item">
+              <i class="fas fa-users-cog"></i> Careers
+            </a>
+            <a href="./achievements.html" class="mobile-dropdown-item">
+              <i class="fas fa-award"></i> Achievements
+            </a>
+          </div>
+        </li>
+
+        
+        <li class="mobile-nav-item">
+          <a href="./services.html" class="mobile-nav-link" onclick="toggleMobileDropdown(event, 'services')">
+            <span><i class="fas fa-cogs"></i> Services</span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="mobile-dropdown" id="services">
+            <a href="./web-development.html" class="mobile-dropdown-item">
+              <i class="fas fa-globe"></i> Web Development
+            </a>
+            <a href="./data-services.html" class="mobile-dropdown-item">
+              <i class="fas fa-database"></i> Data Service
+            </a>
+            <a href="./custom-software.html" class="mobile-dropdown-item">
+              <i class="fas fa-code"></i> Custom Software
+            </a>
+            <a href="./wordpress-development.html" class="mobile-dropdown-item">
+              <i class="fab fa-wordpress"></i> WordPress Development
+            </a>
+            <a href="./seo-services.html" class="mobile-dropdown-item">
+              <i class="fas fa-chart-line"></i> Search engine Optimization
+            </a>
+            <a href="./digital-marketing.html" class="mobile-dropdown-item">
+              <i class="fas fa-bullhorn"></i> Digital Marketing
+            </a>
+            <a href="./maintenance-support.html" class="mobile-dropdown-item">
+              <i class="fas fa-tools"></i> Maintenance & Support
+            </a>
+          </div>
+        </li>
+
+
+        <li class="mobile-nav-item">
+          <a href="./portfolio.html" class="mobile-nav-link">
+            <span><i class="fas fa-briefcase"></i> Portfolio</span>
+          </a>
+        </li>
+
+
+        <li class="mobile-nav-item">
+          <a href="./blog.html" class="mobile-nav-link">
+            <span><i class="fas fa-blog"></i> Blog</span>
+          </a>
+        </li>
+
+        <li class="mobile-nav-item">
+          <a href="./contact-us.html" class="mobile-nav-link">
+            <span><i class="fas fa-envelope"></i> Contact</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="seo-icons">
+      <div class="seo-icon"><i class="fas fa-chart-line"></i></div>
+      <div class="seo-icon"><i class="fas fa-bullseye"></i></div>
+      <div class="seo-icon"><i class="fas fa-rocket"></i></div>
+      <div class="seo-icon"><i class="fas fa-trophy"></i></div>
+    </div>
+    <div class="brand">TechRiwaayat</div>
+    <h1 class="hero-title">Our Journey</h1>
+    <div class="hero-subtitle">From humble beginnings to becoming a trusted partner in digital transformation</div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="section" style="background: white;">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Our Story</h2>
+        <p class="section-subtitle">A timeline of growth, innovation, and success</p>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2020</div>
+            <h3 class="timeline-title">The Beginning</h3>
+            <p class="timeline-description">TechRiwaayat was founded with a vision to provide innovative data processing and web development solutions to businesses of all sizes.</p>
+            <ul class="timeline-highlights">
+              <li>Company established in Lahore, Pakistan</li>
+              <li>First team of 3 passionate developers</li>
+              <li>Launched with web development services</li>
+              <li>Completed first 5 client projects</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2021</div>
+            <h3 class="timeline-title">Expanding Services</h3>
+            <p class="timeline-description">Growing client demand led us to expand our service offerings and strengthen our technical capabilities.</p>
+            <ul class="timeline-highlights">
+              <li>Added data entry and processing services</li>
+              <li>Team grew to 8 skilled professionals</li>
+              <li>Launched WordPress development division</li>
+              <li>Completed 50+ successful projects</li>
+              <li>Established 24/7 customer support</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2022</div>
+            <h3 class="timeline-title">Digital Innovation</h3>
+            <p class="timeline-description">Embracing cutting-edge technologies and methodologies to deliver superior results for our clients.</p>
+            <ul class="timeline-highlights">
+              <li>Introduced AI-powered data processing</li>
+              <li>Launched SEO and digital marketing services</li>
+              <li>Implemented advanced web scraping solutions</li>
+              <li>Achieved 98% client satisfaction rate</li>
+              <li>Expanded to serve international clients</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2023</div>
+            <h3 class="timeline-title">Scale & Excellence</h3>
+            <p class="timeline-description">Focused on scaling operations while maintaining the highest quality standards and client satisfaction.</p>
+            <ul class="timeline-highlights">
+              <li>Team expanded to 15+ experts</li>
+              <li>Added lead generation services</li>
+              <li>Launched custom software development</li>
+              <li>Completed 100+ projects successfully</li>
+              <li>Won first industry recognition award</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2024</div>
+            <h3 class="timeline-title">Market Leadership</h3>
+            <p class="timeline-description">Establishing ourselves as a trusted leader in data processing and web development solutions.</p>
+            <ul class="timeline-highlights">
+              <li>Reached 150+ completed projects</li>
+              <li>Expanded to multiple service verticals</li>
+              <li>Introduced AI-powered automation tools</li>
+              <li>Achieved industry-leading quality standards</li>
+              <li>Built strategic partnerships worldwide</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2025</div>
+            <h3 class="timeline-title">Future Vision</h3>
+            <p class="timeline-description">Continuing to innovate and lead the industry with advanced technologies and exceptional service quality.</p>
+            <ul class="timeline-highlights">
+              <li>Launching AI-driven development platform</li>
+              <li>Expanding global market presence</li>
+              <li>Investing in emerging technologies</li>
+              <li>Building next-generation solutions</li>
+              <li>Strengthening client partnerships</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section stats-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">By the Numbers</h2>
+        <p class="section-subtitle" style="color: white;">Our growth reflects our commitment to excellence</p>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-item animate-on-scroll">
+          <div class="stat-number" data-target="5">0</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-item animate-on-scroll">
+          <div class="stat-number" data-target="150">0</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-item animate-on-scroll">
+          <div class="stat-number" data-target="98">0</div>
+          <div class="stat-label">Client Satisfaction %</div>
+        </div>
+        <div class="stat-item animate-on-scroll">
+          <div class="stat-number" data-target="15">0</div>
+          <div class="stat-label">Team Members</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision Section -->
+  <section class="section vision-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Our Values & Vision</h2>
+        <p class="section-subtitle">The principles that guide our journey forward</p>
+      </div>
+      
+      <div class="vision-grid">
+        <div class="vision-card animate-on-scroll">
+          <div class="vision-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3 class="vision-title">Innovation</h3>
+          <p class="vision-description">We constantly embrace new technologies and methodologies to deliver cutting-edge solutions that keep our clients ahead of the curve.</p>
+        </div>
+
+        <div class="vision-card animate-on-scroll">
+          <div class="vision-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3 class="vision-title">Excellence</h3>
+          <p class="vision-description">Quality is never an accident. We maintain the highest standards in every project, ensuring exceptional results that exceed expectations.</p>
+        </div>
+
+        <div class="vision-card animate-on-scroll">
+          <div class="vision-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3 class="vision-title">Partnership</h3>
+          <p class="vision-description">We believe in building long-term relationships with our clients, understanding their needs, and growing together as trusted partners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Growth Section -->
+  <section class="section team-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Team Evolution</h2>
+        <p class="section-subtitle">How we've grown and evolved as a team</p>
+      </div>
+      
+      <div class="team-stats">
+        <div class="team-stat-card animate-on-scroll">
+          <div class="team-stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="team-stat-number">15+</div>
+          <div class="team-stat-label">Team Members</div>
+        </div>
+
+        <div class="team-stat-card animate-on-scroll">
+          <div class="team-stat-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="team-stat-number">8</div>
+          <div class="team-stat-label">Developers</div>
+        </div>
+
+        <div class="team-stat-card animate-on-scroll">
+          <div class="team-stat-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="team-stat-number">4</div>
+          <div class="team-stat-label">Data Specialists</div>
+        </div>
+
+        <div class="team-stat-card animate-on-scroll">
+          <div class="team-stat-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <div class="team-stat-number">3</div>
+          <div class="team-stat-label">Support Staff</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content animate-on-scroll">
+        <h2 class="cta-title">Join Our Journey</h2>
+        <p class="cta-subtitle">Be part of our next chapter as we continue to innovate and grow</p>
+        <div class="hero-cta">
+          <a href="./contact-us.html" class="cta-btn cta-primary">
+            <span>Start Your Project</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="./careers.html" class="cta-btn cta-secondary">
+            <span>Join Our Team</span>
+            <i class="fas fa-users"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+      <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">
+            <h3>TechRiwaayat</h3>
+            <p>Professional data processing and web development solutions that drive business growth.</p>
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="./web-development.html"> Custom Web Development</a></li>
+            <li><a href="./wordpress-development.html">WordPress Development</a></li>
+            <li><a href="./data-services.html">Data Entry Services</a></li>
+            <li><a href="./data-services.html">Web Scraping</a></li>
+            <li><a href="./seo-services.html">Seo Services</a></li>
+            <li><a href="./custom-software.html">Software Development</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="./about-us.html">About Us</a></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><a href="./portfolio.html">Portfolio</a></li>
+             <li><a href="./services.html">Services</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Lahore, Punjab, Pakistan</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+923287458137">+92 328 7458137</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:mudassar523r@gmail.com">mudassar523r@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-clock"></i>
+              <span>24/7 Available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <div class="copyright">
+            <p>&copy; 2025 TechRiwaayat. All rights reserved.</p>
+          </div>
+          <div class="footer-bottom-links">
+            <a href="./privacy-policy.html">Privacy Policy</a>
+            <a href="./terms-of-service.html">Terms of Service</a>
+            <a href="./cookie-policy.html">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+
+
+ // Loading overlay
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loadingOverlay').classList.add('hidden');
+      }, 1500);
+    });
+
+
+
+ // Mobile menu toggle functionality
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const navbar = document.getElementById('navbar');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      mobileToggle.classList.toggle('active');
+      
+      // Toggle hamburger/close icon
+      if (mobileMenu.classList.contains('active')) {
+        toggleIcon.classList.remove('fa-bars');
+        toggleIcon.classList.add('fa-times');
+      } else {
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Mobile dropdown toggle functionality
+    function toggleMobileDropdown(event, dropdownId) {
+      event.preventDefault();
+      const dropdown = document.getElementById(dropdownId);
+      const arrow = event.currentTarget.querySelector('.dropdown-arrow');
+      
+      // Close other dropdowns
+      document.querySelectorAll('.mobile-dropdown').forEach(item => {
+        if (item.id !== dropdownId) {
+          item.classList.remove('active');
+        }
+      });
+      
+      document.querySelectorAll('.mobile-nav-link .dropdown-arrow').forEach(item => {
+        if (item !== arrow) {
+          item.style.transform = 'rotate(0deg)';
+        }
+      });
+      
+      // Toggle current dropdown
+      dropdown.classList.toggle('active');
+      
+      if (dropdown.classList.contains('active')) {
+        arrow.style.transform = 'rotate(180deg)';
+      } else {
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!mobileMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) {
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Desktop dropdown hover enhancement
+    document.querySelectorAll('.nav-item').forEach(item => {
+      const dropdown = item.querySelector('.dropdown');
+      if (dropdown) {
+        let hoverTimer;
+        
+        item.addEventListener('mouseenter', () => {
+          clearTimeout(hoverTimer);
+          item.classList.add('active');
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          hoverTimer = setTimeout(() => {
+            item.classList.remove('active');
+          }, 150);
+        });
+      }
+    });
+
+    // Keyboard navigation support
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        // Close mobile menu on Escape
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+        
+        // Close all mobile dropdowns
+        document.querySelectorAll('.mobile-dropdown').forEach(dropdown => {
+          dropdown.classList.remove('active');
+        });
+        
+        document.querySelectorAll('.mobile-nav-link .dropdown-arrow').forEach(arrow => {
+          arrow.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Timeline items animation
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.timeline-item').forEach(el => {
+      timelineObserver.observe(el);
+    });
+
+    // Counter animation for statistics
+    function animateCounter(element, target, duration = 2000) {
+      const start = 0;
+      const increment = target / (duration / 16);
+      let current = start;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        element.textContent = Math.floor(current);
+        
+        if (current >= target) {
+          element.textContent = target;
+          clearInterval(timer);
+        }
+      }, 16);
+    }
+
+    // Stats counter observer
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const statNumber = entry.target.querySelector('.stat-number');
+          if (statNumber) {
+            const target = parseInt(statNumber.dataset.target);
+            animateCounter(statNumber, target);
+          }
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    // Observe stats section
+    document.querySelectorAll('.stat-item').forEach(el => {
+      statsObserver.observe(el);
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Timeline marker animation enhancement
+    const timelineMarkers = document.querySelectorAll('.timeline-marker');
+    timelineMarkers.forEach((marker, index) => {
+      marker.style.animationDelay = `${index * 0.2}s`;
+      marker.style.animation = 'pulse 2s infinite';
+    });
+
+    // Add pulse animation for timeline markers
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.3); }
+        50% { box-shadow: 0 0 0 8px rgba(124, 58, 237, 0.1); }
+        100% { box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.3); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Vision cards hover effects
+    document.querySelectorAll('.vision-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        const icon = this.querySelector('.vision-icon');
+        icon.style.transform = 'scale(1.1) rotate(5deg)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        const icon = this.querySelector('.vision-icon');
+        icon.style.transform = 'scale(1) rotate(0deg)';
+      });
+    });
+
+    // Team stat cards animation
+    document.querySelectorAll('.team-stat-card').forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // Add loading spinner for CTA buttons
+    document.querySelectorAll('.cta-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (this.href.includes('#')) return; // Skip for anchor links
+        
+        const originalContent = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+        this.style.pointerEvents = 'none';
+        
+        // Simulate loading (remove this in production)
+        setTimeout(() => {
+          this.innerHTML = originalContent;
+          this.style.pointerEvents = 'auto';
+        }, 2000);
+      });
+    });
+
+    // Progressive timeline reveal
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    let timelineIndex = 0;
+
+    const revealNextTimelineItem = () => {
+      if (timelineIndex < timelineItems.length) {
+        timelineItems[timelineIndex].style.opacity = '1';
+        timelineItems[timelineIndex].style.transform = 'translateY(0)';
+        timelineIndex++;
+      }
+    };
+
+    // Staggered timeline animation
+    const timelineContainer = document.querySelector('.timeline');
+    if (timelineContainer) {
+      const timelineContainerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            timelineItems.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add('animated');
+              }, index * 200);
+            });
+            timelineContainerObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      timelineContainerObserver.observe(timelineContainer);
+    }
+
+    // Performance monitoring
+    window.addEventListener('load', () => {
+      console.log('🚀 Company History page loaded successfully!');
+      console.log(`⚡ Page load time: ${performance.now().toFixed(2)}ms`);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowDown') {
+        window.scrollBy(0, 100);
+      } else if (e.key === 'ArrowUp') {
+        window.scrollBy(0, -100);
+      }
+    });
+
+    // Timeline item focus enhancement
+    document.querySelectorAll('.timeline-content').forEach(content => {
+      content.addEventListener('click', function() {
+        // Remove active class from all items
+        document.querySelectorAll('.timeline-content').forEach(c => c.classList.remove('active'));
+        // Add active class to clicked item
+        this.classList.add('active');
+      });
+    });
+
+    // Add active state styles
+    const activeStyle = document.createElement('style');
+    activeStyle.textContent = `
+      .timeline-content.active {
+        border: 2px solid #7c3aed;
+        transform: scale(1.02);
+      }
+    `;
+    document.head.appendChild(activeStyle);
+
+    // Auto-scroll timeline on page load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const firstTimelineItem = document.querySelector('.timeline-item');
+        if (firstTimelineItem) {
+          firstTimelineItem.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+        }
+      }, 1000);
+    });
+
+    // Easter egg - Konami Code
+    const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    let konamiIndex = 0;
+
+    document.addEventListener('keydown', function(e) {
+      if (e.keyCode === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiCode.length) {
+          // Easter egg activated
+          document.body.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #fab1a0)';
+          document.body.style.backgroundSize = '400% 400%';
+          document.body.style.animation = 'gradient 15s ease infinite';
+          
+          const easterEggStyle = document.createElement('style');
+          easterEggStyle.textContent = `
+            @keyframes gradient {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+          `;
+          document.head.appendChild(easterEggStyle);
+          
+          setTimeout(() => {
+            document.body.style.background = '#f8fafc';
+            document.body.style.animation = 'none';
+          }, 10000);
+          
+          konamiIndex = 0;
+        }
+      } else {
+        konamiIndex = 0;
+      }
+    });
+  </script>
+</body>
+
+</html>

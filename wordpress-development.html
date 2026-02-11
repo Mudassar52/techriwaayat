@@ -1,0 +1,2722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WordPress Development Services - TechRiwaayat | Custom WP Solutions</title>
+  <meta name="description" content="TechRiwaayat offers expert WordPress development services including custom themes, plugin development, WooCommerce solutions, speed optimization, and secure, SEO-friendly websites.">
+  <link rel="icon" type="image/jpeg" sizes="16x16" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="64x64" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="128x128" href="./assets/logo.png">
+  <meta name="description" content="Professional WordPress development services. Custom themes, plugins, e-commerce, and maintenance. Build powerful WordPress websites that drive results.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      background: #f8fafc;
+      overflow-x: hidden;
+    }
+
+
+     /* Navigation Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #1f2937;
+      font-weight: 700;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+    }
+
+    .logo-text {
+      font-size: 21px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Desktop Navigation */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      background: #f3f4f6;
+      color: #7c3aed;
+      transform: translateY(-1px);
+    }
+
+    .nav-link i {
+      font-size: 14px;
+    }
+
+    .dropdown-arrow {
+      font-size: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-item.active .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 220px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1001;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 12px 20px;
+      color: #374151;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .dropdown-item:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+      background: #f8fafc;
+      color: #7c3aed;
+      padding-left: 24px;
+    }
+
+    .dropdown-item i {
+      width: 16px;
+      margin-right: 8px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    
+
+    /* Mobile Menu Toggle */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #374151;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-toggle:hover {
+      background: #f3f4f6;
+      color: #7c3aed;
+    }
+
+    .mobile-toggle.active {
+      color: #7c3aed;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: white;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 999;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      padding: 20px;
+    }
+
+    .mobile-nav-item {
+      margin-bottom: 8px;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+    }
+
+    .mobile-nav-link:hover {
+      background: #eff6ff;
+      color: #7c3aed;
+      transform: translateX(4px);
+    }
+
+    .mobile-nav-link i {
+      font-size: 16px;
+    }
+
+    .mobile-dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+
+    .mobile-dropdown.active {
+      max-height: 375px;
+      padding: 12px 0;
+    }
+
+    .mobile-dropdown-item {
+      display: block;
+      padding: 12px 24px;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      margin: 4px 12px;
+      border-radius: 6px;
+    }
+
+    .mobile-dropdown-item:hover {
+      background: #dbeafe;
+      color: #7c3aed;
+      transform: translateX(4px);
+    }
+
+    
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+    }
+
+    /* Demo Content */
+    .demo-content {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .demo-section {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .demo-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+
+    .demo-section p {
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Animation Classes */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .dropdown {
+      animation: slideDown 0.3s ease when visible;
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+
+
+
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(5deg); }
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.9;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      font-weight: 400;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      animation: fadeInUp 0.8s ease 0.6s both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.8s both;
+    }
+
+    .cta-btn {
+      padding: 16px 32px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cta-primary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-secondary {
+      background: white;
+      color: #7c3aed;
+    }
+
+    .cta-secondary:hover {
+      background: #f8fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Floating WordPress Icons */
+    .wp-icons {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .wp-icon {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .wp-icon i {
+      font-size: 24px;
+      color: white;
+    }
+
+    .wp-icon:nth-child(1) {
+      top: 15%;
+      left: 8%;
+      animation: floatIcon 6s ease-in-out infinite;
+    }
+
+    .wp-icon:nth-child(2) {
+      top: 25%;
+      right: 12%;
+      animation: floatIcon 8s ease-in-out infinite reverse;
+    }
+
+    .wp-icon:nth-child(3) {
+      bottom: 35%;
+      left: 12%;
+      animation: floatIcon 7s ease-in-out infinite;
+    }
+
+    .wp-icon:nth-child(4) {
+      bottom: 15%;
+      right: 8%;
+      animation: floatIcon 9s ease-in-out infinite reverse;
+    }
+
+    .wp-icon:nth-child(5) {
+      top: 45%;
+      left: 5%;
+      animation: floatIcon 10s ease-in-out infinite;
+    }
+
+    .wp-icon:nth-child(6) {
+      top: 35%;
+      right: 5%;
+      animation: floatIcon 11s ease-in-out infinite reverse;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+    /* WordPress Features Section */
+    .features-section {
+      background: white;
+      padding: 80px 20px 60px;
+      margin-top: -80px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 40px 30px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+      border: 1px solid #e9d5ff;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-item::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(168, 85, 247, 0.05), transparent);
+      transform: rotate(45deg);
+      transition: all 0.3s ease;
+      opacity: 0;
+    }
+
+    .feature-item:hover::after {
+      opacity: 1;
+      animation: shimmer 1s ease-out;
+    }
+
+    @keyframes shimmer {
+      0% { transform: rotate(45deg) translateX(-100%); }
+      100% { transform: rotate(45deg) translateX(100%); }
+    }
+
+    .feature-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(124, 58, 237, 0.15);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #e9d5ff, #ddd6fe);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-icon i {
+      font-size: 28px;
+      color: #7c3aed;
+    }
+
+    .feature-item h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-item p {
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Curved Bottom */
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: #f8fafc;
+      clip-path: ellipse(100% 100% at 50% 100%);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 100px 20px;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* WordPress Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #7c3aed, #a855f7);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(124, 58, 237, 0.15);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .service-icon i {
+      font-size: 28px;
+      color: #7c3aed;
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .service-features {
+      list-style: none;
+    }
+
+    .service-features li {
+      color: #374151;
+      font-size: 14px;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .service-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #7c3aed;
+      font-weight: bold;
+    }
+
+    /* WordPress Themes Showcase */
+    .themes-section {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    .themes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .theme-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .theme-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(124, 58, 237, 0.2);
+    }
+
+    .theme-preview {
+      height: 200px;
+      background: linear-gradient(135deg, #e9d5ff, #ddd6fe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .theme-preview::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" fill="%23f8fafc" opacity="0.1"/><rect x="8" y="8" width="24" height="4" fill="%237c3aed" opacity="0.2"/><rect x="8" y="16" width="16" height="2" fill="%237c3aed" opacity="0.1"/><rect x="8" y="20" width="20" height="2" fill="%237c3aed" opacity="0.1"/></svg>') repeat;
+      opacity: 0.3;
+    }
+
+    .theme-preview i {
+      font-size: 48px;
+      color: #7c3aed;
+      opacity: 0.6;
+      position: relative;
+      z-index: 2;
+    }
+
+    .theme-info {
+      padding: 24px;
+    }
+
+    .theme-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 8px;
+    }
+
+    .theme-description {
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .theme-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .theme-tag {
+      background: #f3e8ff;
+      color: #7c3aed;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* WordPress Development Process */
+    .process-section {
+      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .process-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      text-align: center;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .process-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(124, 58, 237, 0.15);
+    }
+
+    .process-number {
+      position: absolute;
+      top: -15px;
+      left: 30px;
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .process-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .process-icon i {
+      font-size: 32px;
+      color: #7c3aed;
+    }
+
+    .process-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 12px;
+    }
+
+    .process-card p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* Why Choose WordPress Section */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .benefit-card {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::after {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 300%;
+      height: 300%;
+      background: conic-gradient(from 0deg, transparent, rgba(124, 58, 237, 0.03), transparent);
+      animation: rotate 8s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .benefit-card:hover::after {
+      opacity: 1;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(124, 58, 237, 0.12);
+    }
+
+    .benefit-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .benefit-icon i {
+      font-size: 24px;
+      color: #7c3aed;
+    }
+
+    .benefit-card h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .benefit-card p {
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.5;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cta-subtitle {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: 70vh;
+        padding: 60px 20px;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .features-section {
+        padding: 60px 20px 40px;
+        margin-top: -60px;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .features-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .services-grid,
+      .themes-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .wp-icons {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .features-section {
+        padding: 40px 20px 20px;
+        margin-top: -40px;
+      }
+
+      .feature-item {
+        padding: 30px 20px;
+      }
+
+      .service-card,
+      .theme-card .theme-info,
+      .process-card,
+      .benefit-card {
+        padding: 25px 20px;
+      }
+    }
+
+
+
+    /* Footer Styles */
+    .footer {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      color: white;
+      padding: 40px 90px 0;
+      margin-top: 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #a855f7;
+    }
+
+    .footer-section h4 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .footer-section p {
+      color: #ffffff;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: #a855f7;
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-link:hover {
+      background: #a855f7;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #d1d5db;
+      font-size: 14px;
+    }
+
+    .contact-item i {
+      width: 20px;
+      color: #a855f7;
+      font-size: 16px;
+    }
+
+    .contact-item a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #a855f7;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 24px 0;
+    }
+
+    .footer-bottom-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .copyright p {
+      color: #9ca3af;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #a855f7;
+    }
+
+    /* Footer Responsive */
+    @media (max-width: 768px) {
+      .footer {
+        padding: 40px 20px 0;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+
+      .footer-section:first-child {
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .footer-bottom-links {
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .contact-info {
+        align-items: center;
+      }
+
+      .contact-item {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-content {
+        gap: 25px;
+      }
+
+      .footer-section h3 {
+        font-size: 24px;
+      }
+
+      .footer-section h4 {
+        font-size: 16px;
+      }
+
+      .social-links {
+        gap: 12px;
+      }
+
+      .social-link {
+        width: 36px;
+        height: 36px;
+      }
+
+      .footer-bottom-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+
+
+
+ /* Loading Overlay */
+      .pl {
+  width: 6em;
+  height: 6em;
+}
+
+.pl__ring {
+  animation: ringA 2s linear infinite;
+}
+
+.pl__ring--a {
+  stroke: #a855f7;
+}
+
+.pl__ring--b {
+  animation-name: ringB;
+  stroke: #3068f5;
+}
+
+.pl__ring--c {
+  animation-name: ringC;
+  stroke: #3068f5;
+}
+
+.pl__ring--d {
+  animation-name: ringD;
+  stroke: #a855f7;
+}
+
+/* Animations */
+@keyframes ringA {
+  from, 4% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+
+  12% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -335;
+  }
+
+  32% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -595;
+  }
+
+  40%, 54% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -660;
+  }
+
+  62% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -665;
+  }
+
+  82% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -925;
+  }
+
+  90%, to {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -990;
+  }
+}
+
+@keyframes ringB {
+  from, 12% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -110;
+  }
+
+  20% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -115;
+  }
+
+  40% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -195;
+  }
+
+  48%, 62% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  70% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  90% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -305;
+  }
+
+  98%, to {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+}
+
+@keyframes ringC {
+  from {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  8% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  28% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  36%, 58% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  66% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  86% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  94%, to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+@keyframes ringD {
+  from, 8% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  16% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  36% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  44%, 50% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  58% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  78% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  86%, to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+     .loadin-Overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .loadin-Overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+   <!-- Loading Overlay -->
+   <div class="loadin-Overlay" id="loadingOverlay">
+ <svg class="pl" width="240" height="240" viewBox="0 0 240 240">
+	<circle class="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 660" stroke-dashoffset="-330" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 220" stroke-dashoffset="-110" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+</svg>
+</div>
+
+
+ <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="./index.html" class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <span class="logo-text">TechRiwaayat</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+        </li>
+
+         <li class="nav-item">
+          <a href="./about-us.html" class="nav-link">
+            <i class="fas fa-info-circle"></i>
+            About
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="dropdown">
+            <a href="./our-team.html" class="dropdown-item">
+              <i class="fas fa-users"></i>
+              Our Team
+            </a>
+            <a href="./history.html" class="dropdown-item">
+              <i class="fas fa-history"></i>
+              Company History
+            </a>
+            <a href="./careers.html" class="dropdown-item">
+              <i class="fas fa-users-cog"></i>
+              Careers
+            </a>
+            <a href="./achievements.html" class="dropdown-item">
+              <i class="fas fa-award"></i>
+              Achievements
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./services.html" class="nav-link">
+            <i class="fas fa-cogs"></i>
+            Services
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="dropdown">
+            <a href="./web-development.html" class="dropdown-item">
+              <i class="fas fa-globe"></i>
+              Web Development
+            </a>
+            <a href="./data-services.html" class="dropdown-item">
+              <i class="fas fa-database"></i>
+              Data Service
+            </a>
+            <a href="./custom-software.html" class="dropdown-item">
+              <i class="fas fa-code"></i>
+              Custom Software
+            </a>
+            <a href="./wordpress-development.html" class="dropdown-item">
+              <i class="fab fa-wordpress"></i>
+              WordPress Development
+            </a>
+            <a href="./seo-services.html" class="dropdown-item">
+              <i class="fas fa-chart-line"></i>
+              Search engine Optimization
+            </a>
+             <a href="./digital-marketing.html" class="dropdown-item">
+              <i class="fas fa-bullhorn"></i> Digital Marketing
+            </a>
+            <a href="./maintenance-support.html" class="dropdown-item">
+              <i class="fas fa-tools"></i>
+              Maintenance & Support
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./portfolio.html" class="nav-link">
+            <i class="fas fa-briefcase"></i>
+            Portfolio
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./blog.html" class="nav-link">
+            <i class="fas fa-blog"></i>
+            Blog
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./contact-us.html" class="nav-link">
+            <i class="fas fa-envelope"></i>
+            Contact
+          </a>
+        </li>
+      </ul>
+
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle" id="mobileToggle">
+        <i class="fas fa-bars" id="toggleIcon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item">
+          <a href="./index.html" class="mobile-nav-link">
+            <span><i class="fas fa-home"></i> Home</span>
+          </a>
+        </li>
+
+        <li class="mobile-nav-item">
+          <a href="./about-us.html" class="mobile-nav-link" onclick="toggleMobileDropdown(event, 'about')">
+            <span><i class="fas fa-info-circle"></i> About</span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="mobile-dropdown" id="about">
+            <a href="./our-team.html" class="mobile-dropdown-item">
+              <i class="fas fa-users"></i> Our Team
+            </a>
+            <a href="./history.html" class="mobile-dropdown-item">
+              <i class="fas fa-history"></i> Company History
+            </a>
+            <a href="./careers.html" class="mobile-dropdown-item">
+              <i class="fas fa-users-cog"></i> Careers
+            </a>
+            <a href="./achievements.html" class="mobile-dropdown-item">
+              <i class="fas fa-award"></i> Achievements
+            </a>
+          </div>
+        </li>
+
+        
+        <li class="mobile-nav-item">
+          <a href="./services.html" class="mobile-nav-link" onclick="toggleMobileDropdown(event, 'services')">
+            <span><i class="fas fa-cogs"></i> Services</span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="mobile-dropdown" id="services">
+            <a href="./web-development.html" class="mobile-dropdown-item">
+              <i class="fas fa-globe"></i> Web Development
+            </a>
+            <a href="./data-services.html" class="mobile-dropdown-item">
+              <i class="fas fa-database"></i> Data Service
+            </a>
+            <a href="./custom-software.html" class="mobile-dropdown-item">
+              <i class="fas fa-code"></i> Custom Software
+            </a>
+            <a href="./wordpress-development.html" class="mobile-dropdown-item">
+              <i class="fab fa-wordpress"></i> WordPress Development
+            </a>
+            <a href="./seo-services.html" class="mobile-dropdown-item">
+              <i class="fas fa-chart-line"></i> Search engine Optimization
+            </a>
+            <a href="./digital-marketing.html" class="mobile-dropdown-item">
+              <i class="fas fa-bullhorn"></i> Digital Marketing
+            </a>
+            <a href="./maintenance-support.html" class="mobile-dropdown-item">
+              <i class="fas fa-tools"></i> Maintenance & Support
+            </a>
+          </div>
+        </li>
+
+
+        <li class="mobile-nav-item">
+          <a href="./portfolio.html" class="mobile-nav-link">
+            <span><i class="fas fa-briefcase"></i> Portfolio</span>
+          </a>
+        </li>
+
+
+        <li class="mobile-nav-item">
+          <a href="./blog.html" class="mobile-nav-link">
+            <span><i class="fas fa-blog"></i> Blog</span>
+          </a>
+        </li>
+
+        <li class="mobile-nav-item">
+          <a href="./contact-us.html" class="mobile-nav-link">
+            <span><i class="fas fa-envelope"></i> Contact</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+  
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="wp-icons">
+      <div class="wp-icon"><i class="fab fa-wordpress"></i></div>
+      <div class="wp-icon"><i class="fas fa-paint-brush"></i></div>
+      <div class="wp-icon"><i class="fas fa-plug"></i></div>
+      <div class="wp-icon"><i class="fas fa-shopping-cart"></i></div>
+      <div class="wp-icon"><i class="fas fa-mobile-alt"></i></div>
+      <div class="wp-icon"><i class="fas fa-cogs"></i></div>
+    </div>
+    
+    <div class="brand">TechRiwaayat</div>
+    <h1 class="hero-title">WordPress Development</h1>
+    <div class="hero-subtitle">Build powerful, scalable WordPress websites with custom themes, plugins, and solutions</div>
+    <div class="hero-cta">
+      <a href="#services" class="cta-btn cta-primary">
+        <span>Explore Services</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="#contact" class="cta-btn cta-secondary">
+        <span>Get Quote</span>
+        <i class="fas fa-calculator"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- WordPress Services Section -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">WordPress Development Services</h2>
+        <p class="section-subtitle">Comprehensive WordPress solutions to power your online presence</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>Custom Theme Development</h3>
+          <p>Unique, pixel-perfect WordPress themes designed and developed specifically for your brand and requirements.</p>
+          <ul class="service-features">
+            <li>100% Custom Design</li>
+            <li>Responsive & Mobile-First</li>
+            <li>Cross-Browser Compatible</li>
+            <li>Performance Optimized</li>
+            <li>SEO-Friendly Structure</li>
+            <li>Easy Customization Options</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-plug"></i>
+          </div>
+          <h3>Custom Plugin Development</h3>
+          <p>Tailored WordPress plugins to add specific functionality and features to your website.</p>
+          <ul class="service-features">
+            <li>Custom Functionality</li>
+            <li>WordPress Standards Compliant</li>
+            <li>Secure & Optimized Code</li>
+            <li>Admin Dashboard Integration</li>
+            <li>Database Optimization</li>
+            <li>Future Updates Support</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <h3>WooCommerce Development</h3>
+          <p>Complete e-commerce solutions using WooCommerce for selling products and services online.</p>
+          <ul class="service-features">
+            <li>Custom WooCommerce Themes</li>
+            <li>Payment Gateway Integration</li>
+            <li>Inventory Management</li>
+            <li>Shipping Configuration</li>
+            <li>Tax Settings & Compliance</li>
+            <li>Order Management System</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+          <h3>WordPress Migration & Updates</h3>
+          <p>Safe and secure website migration, version updates, and performance optimization services.</p>
+          <ul class="service-features">
+            <li>Site Migration & Transfer</li>
+            <li>WordPress Core Updates</li>
+            <li>Plugin & Theme Updates</li>
+            <li>Database Optimization</li>
+            <li>Backup & Recovery</li>
+            <li>Performance Tuning</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3>WordPress Maintenance</h3>
+          <p>Ongoing maintenance and support to keep your WordPress website secure, updated, and running smoothly.</p>
+          <ul class="service-features">
+            <li>Regular Security Updates</li>
+            <li>Daily Automated Backups</li>
+            <li>Performance Monitoring</li>
+            <li>Uptime Monitoring</li>
+            <li>Content Updates</li>
+            <li>Technical Support</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>WordPress Speed Optimization</h3>
+          <p>Comprehensive performance optimization to make your WordPress website load faster and rank better.</p>
+          <ul class="service-features">
+            <li>Page Speed Optimization</li>
+            <li>Image Compression & WebP</li>
+            <li>Caching Implementation</li>
+            <li>Database Cleanup</li>
+            <li>CDN Integration</li>
+            <li>Core Web Vitals Optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WordPress Themes Showcase -->
+  <section class="section themes-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">WordPress Theme Categories</h2>
+        <p class="section-subtitle">We create custom WordPress themes for every industry and business type</p>
+      </div>
+      
+      <div class="themes-grid">
+        <div class="theme-card animate-on-scroll">
+          <div class="theme-preview">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div class="theme-info">
+            <h3 class="theme-name">Business & Corporate</h3>
+            <p class="theme-description">Professional themes for businesses, corporations, and service providers with modern layouts and functionality.</p>
+            <div class="theme-tags">
+              <span class="theme-tag">Professional</span>
+              <span class="theme-tag">Corporate</span>
+              <span class="theme-tag">Modern</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theme-card animate-on-scroll">
+          <div class="theme-preview">
+            <i class="fas fa-shopping-bag"></i>
+          </div>
+          <div class="theme-info">
+            <h3 class="theme-name">E-commerce & Online Store</h3>
+            <p class="theme-description">WooCommerce-ready themes designed for online stores, marketplaces, and e-commerce businesses.</p>
+            <div class="theme-tags">
+              <span class="theme-tag">WooCommerce</span>
+              <span class="theme-tag">Shopping</span>
+              <span class="theme-tag">Responsive</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theme-card animate-on-scroll">
+          <div class="theme-preview">
+            <i class="fas fa-camera"></i>
+          </div>
+          <div class="theme-info">
+            <h3 class="theme-name">Portfolio & Creative</h3>
+            <p class="theme-description">Stunning portfolio themes for photographers, designers, artists, and creative professionals.</p>
+            <div class="theme-tags">
+              <span class="theme-tag">Portfolio</span>
+              <span class="theme-tag">Gallery</span>
+              <span class="theme-tag">Creative</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theme-card animate-on-scroll">
+          <div class="theme-preview">
+            <i class="fas fa-newspaper"></i>
+          </div>
+          <div class="theme-info">
+            <h3 class="theme-name">Blog & Magazine</h3>
+            <p class="theme-description">Content-focused themes perfect for blogs, magazines, news sites, and publishing platforms.</p>
+            <div class="theme-tags">
+              <span class="theme-tag">Blog</span>
+              <span class="theme-tag">Magazine</span>
+              <span class="theme-tag">Content</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theme-card animate-on-scroll">
+          <div class="theme-preview">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <div class="theme-info">
+            <h3 class="theme-name">Restaurant & Food</h3>
+            <p class="theme-description">Appetizing themes for restaurants, cafes, food blogs, and culinary businesses with menu integration.</p>
+            <div class="theme-tags">
+              <span class="theme-tag">Restaurant</span>
+              <span class="theme-tag">Menu</span>
+              <span class="theme-tag">Booking</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="theme-card animate-on-scroll">
+          <div class="theme-preview">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="theme-info">
+            <h3 class="theme-name">Education & Learning</h3>
+            <p class="theme-description">Educational themes for schools, universities, online courses, and e-learning platforms.</p>
+            <div class="theme-tags">
+              <span class="theme-tag">Education</span>
+              <span class="theme-tag">Courses</span>
+              <span class="theme-tag">LMS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WordPress Development Process -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Our WordPress Development Process</h2>
+        <p class="section-subtitle">A proven methodology to deliver exceptional WordPress solutions</p>
+      </div>
+      
+      <div class="process-grid">
+        <div class="process-card animate-on-scroll">
+          <div class="process-number">1</div>
+          <div class="process-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>Discovery & Planning</h3>
+          <p>We analyze your requirements, define project scope, and create a detailed development plan with timelines and deliverables.</p>
+        </div>
+
+        <div class="process-card animate-on-scroll">
+          <div class="process-number">2</div>
+          <div class="process-icon">
+            <i class="fas fa-pencil-ruler"></i>
+          </div>
+          <h3>Design & Wireframing</h3>
+          <p>Create wireframes, mockups, and design prototypes that align with your brand and user experience goals.</p>
+        </div>
+
+        <div class="process-card animate-on-scroll">
+          <div class="process-number">3</div>
+          <div class="process-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>WordPress Development</h3>
+          <p>Build custom themes, plugins, and functionality using WordPress best practices and coding standards.</p>
+        </div>
+
+        <div class="process-card animate-on-scroll">
+          <div class="process-number">4</div>
+          <div class="process-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3>Integration & Setup</h3>
+          <p>Integrate third-party services, configure plugins, and set up all necessary functionality and features.</p>
+        </div>
+
+        <div class="process-card animate-on-scroll">
+          <div class="process-number">5</div>
+          <div class="process-icon">
+            <i class="fas fa-vial"></i>
+          </div>
+          <h3>Testing & Quality Assurance</h3>
+          <p>Comprehensive testing across devices, browsers, and scenarios to ensure flawless performance.</p>
+        </div>
+
+        <div class="process-card animate-on-scroll">
+          <div class="process-number">6</div>
+          <div class="process-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Launch & Support</h3>
+          <p>Deploy your WordPress website and provide ongoing support, maintenance, and training as needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose WordPress -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Why Choose WordPress?</h2>
+        <p class="section-subtitle">Discover why WordPress is the world's most popular content management system</p>
+      </div>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h4>User-Friendly</h4>
+          <p>Intuitive admin interface that makes content management easy for non-technical users.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-puzzle-piece"></i>
+          </div>
+          <h4>Extensive Plugin Library</h4>
+          <p>Access to thousands of plugins that extend functionality without custom development.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h4>SEO Friendly</h4>
+          <p>Built-in SEO features and compatibility with popular SEO plugins for better search rankings.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h4>Mobile Responsive</h4>
+          <p>Modern WordPress themes are mobile-first and provide excellent user experience across devices.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <h4>Cost Effective</h4>
+          <p>Open-source platform with lower development costs and extensive community support.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h4>Secure & Reliable</h4>
+          <p>Regular security updates and a robust security ecosystem with proven reliability.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-expand-arrows-alt"></i>
+          </div>
+          <h4>Scalable Solution</h4>
+          <p>Grows with your business from simple blogs to complex enterprise-level websites.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h4>Community Support</h4>
+          <p>Large, active community providing support, themes, plugins, and continuous improvements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section" id="contact">
+    <div class="container">
+      <div class="cta-content animate-on-scroll">
+        <h2 class="cta-title">Ready to Build Your WordPress Website?</h2>
+        <p class="cta-subtitle">Let's create a powerful WordPress solution that drives your business forward</p>
+        <div class="hero-cta">
+          <a href="./contact-us.html" class="cta-btn cta-primary">
+            <span>Start Your Project</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="tel:+923001234567" class="cta-btn cta-secondary">
+            <span>Call Now</span>
+            <i class="fas fa-phone"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    <!-- WordPress Features Section -->
+  <section class="features-section">
+    <div class="features-container">
+      <div class="feature-item animate-on-scroll">
+        <div class="feature-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3>Fast & Secure</h3>
+        <p>Optimized WordPress sites with top-tier security and lightning-fast performance.</p>
+      </div>
+      
+      <div class="feature-item animate-on-scroll">
+        <div class="feature-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>Mobile Responsive</h3>
+        <p>Fully responsive designs that look perfect on all devices and screen sizes.</p>
+      </div>
+      
+      <div class="feature-item animate-on-scroll">
+        <div class="feature-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <h3>SEO Optimized</h3>
+        <p>Built-in SEO best practices to help your website rank higher in search results.</p>
+      </div>
+      
+      <div class="feature-item animate-on-scroll">
+        <div class="feature-icon">
+          <i class="fas fa-edit"></i>
+        </div>
+        <h3>Easy to Manage</h3>
+        <p>User-friendly admin interface that makes content management simple and intuitive.</p>
+      </div>
+      
+      <div class="feature-item animate-on-scroll">
+        <div class="feature-icon">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </div>
+        <h3>Scalable Solutions</h3>
+        <p>Flexible architecture that grows with your business needs and requirements.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">
+            <h3>TechRiwaayat</h3>
+            <p>Professional data processing and web development solutions that drive business growth.</p>
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        
+       <div class="footer-section">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="./web-development.html"> Custom Web Development</a></li>
+            <li><a href="./wordpress-development.html">WordPress Development</a></li>
+            <li><a href="./data-services.html">Data Entry Services</a></li>
+            <li><a href="./data-services.html">Web Scraping</a></li>
+            <li><a href="./seo-services.html">Seo Services</a></li>
+            <li><a href="./custom-software.html">Software Development</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="./about-us.html">About Us</a></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><a href="./portfolio.html">Portfolio</a></li>
+             <li><a href="./services.html">Services</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Lahore, Punjab, Pakistan</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+923287458137">+92 328 7458137</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:mudassar523r@gmail.com">mudassar523r@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-clock"></i>
+              <span>24/7 Available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <div class="copyright">
+            <p>&copy; 2025 TechRiwaayat. All rights reserved.</p>
+          </div>
+          <div class="footer-bottom-links">
+            <a href="./privacy-policy.html">Privacy Policy</a>
+            <a href="./terms-of-service.html">Terms of Service</a>
+            <a href="./cookie-policy.html">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script>
+
+
+ // Loading overlay
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loadingOverlay').classList.add('hidden');
+      }, 1500);
+    });
+
+
+
+
+
+     // Mobile menu toggle functionality
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const navbar = document.getElementById('navbar');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      mobileToggle.classList.toggle('active');
+      
+      // Toggle hamburger/close icon
+      if (mobileMenu.classList.contains('active')) {
+        toggleIcon.classList.remove('fa-bars');
+        toggleIcon.classList.add('fa-times');
+      } else {
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Mobile dropdown toggle functionality
+    function toggleMobileDropdown(event, dropdownId) {
+      event.preventDefault();
+      const dropdown = document.getElementById(dropdownId);
+      const arrow = event.currentTarget.querySelector('.dropdown-arrow');
+      
+      // Close other dropdowns
+      document.querySelectorAll('.mobile-dropdown').forEach(item => {
+        if (item.id !== dropdownId) {
+          item.classList.remove('active');
+        }
+      });
+      
+      document.querySelectorAll('.mobile-nav-link .dropdown-arrow').forEach(item => {
+        if (item !== arrow) {
+          item.style.transform = 'rotate(0deg)';
+        }
+      });
+      
+      // Toggle current dropdown
+      dropdown.classList.toggle('active');
+      
+      if (dropdown.classList.contains('active')) {
+        arrow.style.transform = 'rotate(180deg)';
+      } else {
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!mobileMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) {
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Desktop dropdown hover enhancement
+    document.querySelectorAll('.nav-item').forEach(item => {
+      const dropdown = item.querySelector('.dropdown');
+      if (dropdown) {
+        let hoverTimer;
+        
+        item.addEventListener('mouseenter', () => {
+          clearTimeout(hoverTimer);
+          item.classList.add('active');
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          hoverTimer = setTimeout(() => {
+            item.classList.remove('active');
+          }, 150);
+        });
+      }
+    });
+
+    // Keyboard navigation support
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        // Close mobile menu on Escape
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+        
+        // Close all mobile dropdowns
+        document.querySelectorAll('.mobile-dropdown').forEach(dropdown => {
+          dropdown.classList.remove('active');
+        });
+        
+        document.querySelectorAll('.mobile-nav-link .dropdown-arrow').forEach(arrow => {
+          arrow.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+
+
+
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Parallax effect for hero and CTA sections
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero-section');
+      const cta = document.querySelector('.cta-section');
+      
+      if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+      }
+      
+      if (cta) {
+        const ctaOffset = cta.offsetTop;
+        const ctaScroll = scrolled - ctaOffset + window.innerHeight;
+        if (ctaScroll > 0) {
+          cta.style.transform = `translateY(${ctaScroll * 0.1}px)`;
+        }
+      }
+    });
+
+    // WordPress icons animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const wpIcons = document.querySelectorAll('.wp-icon');
+      wpIcons.forEach((icon, index) => {
+        setTimeout(() => {
+          icon.style.opacity = '1';
+          icon.style.animation = `floatIcon ${6 + index}s ease-in-out infinite ${index % 2 === 0 ? '' : 'reverse'}`;
+        }, index * 200);
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Service cards enhanced interaction
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+        this.querySelector('.service-icon').style.transform = 'scale(1.1) rotate(5deg)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+        this.querySelector('.service-icon').style.transform = 'scale(1) rotate(0deg)';
+      });
+    });
+
+    // Theme cards interaction
+    document.querySelectorAll('.theme-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        const icon = this.querySelector('.theme-preview i');
+        icon.style.transform = 'scale(1.2) rotate(10deg)';
+        icon.style.color = '#a855f7';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        const icon = this.querySelector('.theme-preview i');
+        icon.style.transform = 'scale(1) rotate(0deg)';
+        icon.style.color = '#7c3aed';
+      });
+    });
+
+    // Feature items interaction
+    document.querySelectorAll('.feature-item').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        const icon = this.querySelector('.feature-icon');
+        icon.style.transform = 'scale(1.1) rotate(5deg)';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        const icon = this.querySelector('.feature-icon');
+        icon.style.transform = 'scale(1) rotate(0deg)';
+      });
+    });
+
+    // Process cards staggered animation
+    const processCards = document.querySelectorAll('.process-card');
+    processCards.forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // Enhanced button loading states
+    document.querySelectorAll('.cta-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (this.href && !this.href.includes('#') && !this.href.includes('tel:')) {
+          e.preventDefault();
+          
+          const originalContent = this.innerHTML;
+          this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+          this.style.pointerEvents = 'none';
+          
+          setTimeout(() => {
+            if (this.href.includes('contact_us_page.html')) {
+              window.location.href = this.href;
+            } else {
+              this.innerHTML = originalContent;
+              this.style.pointerEvents = 'auto';
+            }
+          }, 1500);
+        }
+      });
+    });
+
+    // WordPress theme preview animation
+    document.querySelectorAll('.theme-preview').forEach(preview => {
+      preview.addEventListener('mouseenter', function() {
+        const overlay = this.querySelector('::before');
+        this.style.background = 'linear-gradient(135deg, #ddd6fe, #c4b5fd)';
+      });
+      
+      preview.addEventListener('mouseleave', function() {
+        this.style.background = 'linear-gradient(135deg, #e9d5ff, #ddd6fe)';
+      });
+    });
+
+    // Dynamic content loading simulation for themes
+    function simulateThemePreview(element) {
+      const preview = element.querySelector('.theme-preview');
+      const icon = preview.querySelector('i');
+      
+      // Add loading effect
+      icon.style.animation = 'spin 1s linear infinite';
+      
+      setTimeout(() => {
+        icon.style.animation = '';
+        // Add loaded class or effect
+        preview.style.background = 'linear-gradient(135deg, #c4b5fd, #a78bfa)';
+        setTimeout(() => {
+          preview.style.background = 'linear-gradient(135deg, #e9d5ff, #ddd6fe)';
+        }, 500);
+      }, 1000);
+    }
+
+    // Add spin animation for icons
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Performance monitoring
+    window.addEventListener('load', () => {
+      console.log('🚀 WordPress Development page loaded successfully!');
+      console.log(`⚡ Page load time: ${performance.now().toFixed(2)}ms`);
+      
+      // Track page performance
+      const navigation = performance.getEntriesByType('navigation')[0];
+      if (navigation) {
+        console.log(`📊 DOM loaded: ${navigation.domContentLoadedEventEnd.toFixed(2)}ms`);
+        console.log(`🎨 Page rendered: ${navigation.loadEventEnd.toFixed(2)}ms`);
+      }
+    });
+
+    // WordPress tips and tricks (optional enhancement)
+    const wpTips = [
+      "Keep your WordPress core, themes, and plugins updated for security",
+      "Use strong passwords and two-factor authentication",
+      "Regular backups are essential for WordPress websites",
+      "Optimize images before uploading to improve site speed",
+      "Use caching plugins to improve performance"
+    ];
+
+    // Randomly show tip on page load
+    if (Math.random() > 0.7) {
+      const randomTip = wpTips[Math.floor(Math.random() * wpTips.length)];
+      console.log(`💡 WordPress Tip: ${randomTip}`);
+    }
+
+    // Error handling and fallbacks
+    window.addEventListener('error', (e) => {
+      console.error('WordPress page error:', e.error);
+    });
+
+    // Lazy loading for theme previews
+    function lazyLoadThemes() {
+      const themes = document.querySelectorAll('.theme-card');
+      const themeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add loaded class for animation
+            entry.target.classList.add('loaded');
+            themeObserver.unobserve(entry.target);
+          }
+        });
+      });
+      
+      themes.forEach(theme => themeObserver.observe(theme));
+    }
+
+    // Initialize lazy loading
+    lazyLoadThemes();
+
+    // WordPress version checker (simulation)
+    function checkWordPressVersion() {
+      // Simulate checking WordPress version
+      const versions = ['6.4.2', '6.4.1', '6.3.2', '6.3.1'];
+      const currentVersion = versions[0];
+      console.log(`🔧 WordPress Latest Version: ${currentVersion}`);
+    }
+
+    // Check version on load
+    checkWordPressVersion();
+  </script>
+</body>
+
+</html>
+

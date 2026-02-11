@@ -1,0 +1,2490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEO Services - TechRiwaayat | Boost Your Online Visibility</title>
+  <meta name="description" content="Boost your online visibility with TechRiwaayat SEO Services. We offer keyword research, on-page SEO, technical SEO, link building, and local SEO to improve rankings and drive organic traffic.">
+  <link rel="icon" type="image/jpeg" sizes="16x16" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="64x64" href="./assets/logo.png">
+    <link rel="icon" type="image/jpeg" sizes="128x128" href="./assets/logo.png">
+  <meta name="description" content="Professional SEO services to improve your website's search engine rankings. Drive organic traffic and grow your business with our proven SEO strategies.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      background: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    
+    /* Navigation Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #1f2937;
+      font-weight: 700;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+    }
+
+    .logo-text {
+      font-size: 21px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Desktop Navigation */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      background: #f3f4f6;
+      color: #7c3aed;
+      transform: translateY(-1px);
+    }
+
+    .nav-link i {
+      font-size: 14px;
+    }
+
+    .dropdown-arrow {
+      font-size: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-item.active .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 220px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1001;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 12px 20px;
+      color: #374151;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .dropdown-item:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+      background: #f8fafc;
+      color: #7c3aed;
+      padding-left: 24px;
+    }
+
+    .dropdown-item i {
+      width: 16px;
+      margin-right: 8px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    
+
+    /* Mobile Menu Toggle */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #374151;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-toggle:hover {
+      background: #f3f4f6;
+      color: #7c3aed;
+    }
+
+    .mobile-toggle.active {
+      color: #7c3aed;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: white;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 999;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      padding: 20px;
+    }
+
+    .mobile-nav-item {
+      margin-bottom: 8px;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+    }
+
+    .mobile-nav-link:hover {
+      background: #eff6ff;
+      color: #7c3aed;
+      transform: translateX(4px);
+    }
+
+    .mobile-nav-link i {
+      font-size: 16px;
+    }
+
+    .mobile-dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+
+    .mobile-dropdown.active {
+      max-height: 375px;
+      padding: 12px 0;
+    }
+
+    .mobile-dropdown-item {
+      display: block;
+      padding: 12px 24px;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      margin: 4px 12px;
+      border-radius: 6px;
+    }
+
+    .mobile-dropdown-item:hover {
+      background: #dbeafe;
+      color: #7c3aed;
+      transform: translateX(4px);
+    }
+
+    
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+    }
+
+    /* Demo Content */
+    .demo-content {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .demo-section {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .demo-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+
+    .demo-section p {
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Animation Classes */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .dropdown {
+      animation: slideDown 0.3s ease when visible;
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(5deg); }
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.9;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      font-weight: 400;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      animation: fadeInUp 0.8s ease 0.6s both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.8s both;
+    }
+
+    .cta-btn {
+      padding: 16px 32px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .cta-primary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-secondary {
+      background: white;
+      color: #7c3aed;
+    }
+
+    .cta-secondary:hover {
+      background: #f8fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Floating SEO Icons */
+    .seo-icons {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .seo-icon {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .seo-icon i {
+      font-size: 24px;
+      color: white;
+    }
+
+    .seo-icon:nth-child(1) {
+      top: 15%;
+      left: 8%;
+      animation: floatIcon 6s ease-in-out infinite;
+    }
+
+    .seo-icon:nth-child(2) {
+      top: 25%;
+      right: 12%;
+      animation: floatIcon 8s ease-in-out infinite reverse;
+    }
+
+    .seo-icon:nth-child(3) {
+      bottom: 35%;
+      left: 12%;
+      animation: floatIcon 7s ease-in-out infinite;
+    }
+
+    .seo-icon:nth-child(4) {
+      bottom: 15%;
+      right: 8%;
+      animation: floatIcon 9s ease-in-out infinite reverse;
+    }
+
+    .seo-icon:nth-child(5) {
+      top: 45%;
+      left: 5%;
+      animation: floatIcon 10s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: white;
+      padding: 60px 20px;
+      margin-top: -80px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .stats-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+      border: 1px solid #f2d1fa;
+      transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(16, 185, 129, 0.15);
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: #7c3aed;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #374151;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Curved Bottom */
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: #f8fafc;
+      clip-path: ellipse(100% 100% at 50% 100%);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 100px 20px;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* SEO Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background:  linear-gradient(90deg, #7c3aed, #a855f7);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(137, 16, 185, 0.15);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .service-icon i {
+      font-size: 28px;
+      color: #a855f7;
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .service-features {
+      list-style: none;
+    }
+
+    .service-features li {
+      color: #374151;
+      font-size: 14px;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .service-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #a855f7;
+      font-weight: bold;
+    }
+
+    /* SEO Process Section */
+    .process-section {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    .process-timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, #7c3aed, #a855f7);
+      transform: translateX(-50%);
+    }
+
+    .process-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .process-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .process-content {
+      flex: 1;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      margin: 0 30px;
+      position: relative;
+    }
+
+    .process-content::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+    }
+
+    .process-item:nth-child(odd) .process-content::before {
+      right: -20px;
+      border-left-color: white;
+      transform: translateY(-50%);
+    }
+
+    .process-item:nth-child(even) .process-content::before {
+      left: -20px;
+      border-right-color: white;
+      transform: translateY(-50%);
+    }
+
+    .process-number {
+      position: absolute;
+      left: 50%;
+      bottom: 80%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+      z-index: 10;
+    }
+
+    .process-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 12px;
+    }
+
+    .process-description {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* SEO Benefits Section */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .benefit-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(16, 185, 129, 0.03), transparent);
+      transform: rotate(45deg);
+      transition: all 0.3s ease;
+      opacity: 0;
+    }
+
+    .benefit-card:hover::after {
+      opacity: 1;
+      animation: shimmer 1s ease-out;
+    }
+
+    @keyframes shimmer {
+      0% { transform: rotate(45deg) translateX(-100%); }
+      100% { transform: rotate(45deg) translateX(100%); }
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(145, 16, 185, 0.2);
+    }
+
+    .benefit-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .benefit-icon i {
+      font-size: 32px;
+      color: #a855f7;
+    }
+
+    .benefit-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .benefit-card p {
+      color: #6b7280;
+      line-height: 1.6;
+      position: relative;
+      z-index: 2;
+    }
+
+
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 80px;
+    }
+
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cta-subtitle {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: 70vh;
+        padding: 60px 20px;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .stats-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+      }
+
+      .timeline-line {
+        display: none;
+      }
+
+      .process-item {
+        flex-direction: column !important;
+        text-align: center;
+      }
+
+      .process-content {
+        margin: 20px 0;
+      }
+
+      .process-content::before {
+        display: none;
+      }
+
+      .process-number {
+        position: static;
+        transform: none;
+        margin-bottom: -40px;
+      }
+
+      .seo-icons {
+        display: none;
+      }
+
+      .pricing-card.featured {
+        transform: none;
+      }
+
+      .pricing-card.featured:hover {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-section {
+        padding: 40px 20px;
+        margin-top: -60px;
+      }
+
+
+      .service-card,
+      .benefit-card,
+      .pricing-card {
+        padding: 30px 20px;
+      }
+    }
+
+
+
+   
+    /* Footer Styles */
+    .footer {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      color: white;
+      padding: 40px 90px 0;
+      margin-top: 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #a855f7;
+    }
+
+    .footer-section h4 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .footer-section p {
+      color: #ffffff;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: #a855f7;
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-link:hover {
+      background: #a855f7;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #d1d5db;
+      font-size: 14px;
+    }
+
+    .contact-item i {
+      width: 20px;
+      color: #a855f7;
+      font-size: 16px;
+    }
+
+    .contact-item a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #a855f7;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 24px 0;
+    }
+
+    .footer-bottom-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .copyright p {
+      color: #9ca3af;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #a855f7;
+    }
+
+    /* Footer Responsive */
+    @media (max-width: 768px) {
+      .footer {
+        padding: 40px 20px 0;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+
+      .footer-section:first-child {
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .footer-bottom-links {
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .contact-info {
+        align-items: center;
+      }
+
+      .contact-item {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-content {
+        gap: 25px;
+      }
+
+      .footer-section h3 {
+        font-size: 24px;
+      }
+
+      .footer-section h4 {
+        font-size: 16px;
+      }
+
+      .social-links {
+        gap: 12px;
+      }
+
+      .social-link {
+        width: 36px;
+        height: 36px;
+      }
+
+      .footer-bottom-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+
+
+
+ /* Loading Overlay */
+
+      .pl {
+  width: 6em;
+  height: 6em;
+}
+
+.pl__ring {
+  animation: ringA 2s linear infinite;
+}
+
+.pl__ring--a {
+  stroke: #a855f7;
+}
+
+.pl__ring--b {
+  animation-name: ringB;
+  stroke: #3068f5;
+}
+
+.pl__ring--c {
+  animation-name: ringC;
+  stroke: #3068f5;
+}
+
+.pl__ring--d {
+  animation-name: ringD;
+  stroke: #a855f7;
+}
+
+/* Animations */
+@keyframes ringA {
+  from, 4% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+
+  12% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -335;
+  }
+
+  32% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -595;
+  }
+
+  40%, 54% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -660;
+  }
+
+  62% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -665;
+  }
+
+  82% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -925;
+  }
+
+  90%, to {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -990;
+  }
+}
+
+@keyframes ringB {
+  from, 12% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -110;
+  }
+
+  20% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -115;
+  }
+
+  40% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -195;
+  }
+
+  48%, 62% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  70% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  90% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -305;
+  }
+
+  98%, to {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+}
+
+@keyframes ringC {
+  from {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  8% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  28% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  36%, 58% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  66% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  86% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  94%, to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+@keyframes ringD {
+  from, 8% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  16% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  36% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  44%, 50% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  58% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  78% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  86%, to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+     .loadin-Overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .loadin-Overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+   <!-- Loading Overlay -->
+   <div class="loadin-Overlay" id="loadingOverlay">
+ <svg class="pl" width="240" height="240" viewBox="0 0 240 240">
+	<circle class="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 660" stroke-dashoffset="-330" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 220" stroke-dashoffset="-110" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+	<circle class="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+</svg>
+</div>
+
+  
+ <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="./index.html" class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <span class="logo-text">TechRiwaayat</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+        </li>
+
+         <li class="nav-item">
+          <a href="./about-us.html" class="nav-link">
+            <i class="fas fa-info-circle"></i>
+            About
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="dropdown">
+            <a href="./our-team.html" class="dropdown-item">
+              <i class="fas fa-users"></i>
+              Our Team
+            </a>
+            <a href="./history.html" class="dropdown-item">
+              <i class="fas fa-history"></i>
+              Company History
+            </a>
+            <a href="./careers.html" class="dropdown-item">
+              <i class="fas fa-users-cog"></i>
+              Careers
+            </a>
+            <a href="./achievements.html" class="dropdown-item">
+              <i class="fas fa-award"></i>
+              Achievements
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./services.html" class="nav-link">
+            <i class="fas fa-cogs"></i>
+            Services
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="dropdown">
+            <a href="./web-development.html" class="dropdown-item">
+              <i class="fas fa-globe"></i>
+              Web Development
+            </a>
+            <a href="./data-services.html" class="dropdown-item">
+              <i class="fas fa-database"></i>
+              Data Service
+            </a>
+            <a href="./custom-software.html" class="dropdown-item">
+              <i class="fas fa-code"></i>
+              Custom Software
+            </a>
+            <a href="./wordpress-development.html" class="dropdown-item">
+              <i class="fab fa-wordpress"></i>
+              WordPress Development
+            </a>
+            <a href="./seo-services.html" class="dropdown-item">
+              <i class="fas fa-chart-line"></i>
+              Search engine Optimization
+            </a>
+             <a href="./digital-marketing.html" class="dropdown-item">
+              <i class="fas fa-bullhorn"></i> Digital Marketing
+            </a>
+            <a href="./maintenance-support.html" class="dropdown-item">
+              <i class="fas fa-tools"></i>
+              Maintenance & Support
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./portfolio.html" class="nav-link">
+            <i class="fas fa-briefcase"></i>
+            Portfolio
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="./blog.html" class="nav-link">
+            <i class="fas fa-blog"></i>
+            Blog
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="./contact-us.html" class="nav-link">
+            <i class="fas fa-envelope"></i>
+            Contact
+          </a>
+        </li>
+      </ul>
+
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle" id="mobileToggle">
+        <i class="fas fa-bars" id="toggleIcon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item">
+          <a href="./index.html" class="mobile-nav-link">
+            <span><i class="fas fa-home"></i> Home</span>
+          </a>
+        </li>
+
+        <li class="mobile-nav-item">
+          <a href="./about-us.html" class="mobile-nav-link" onclick="toggleMobileDropdown(event, 'about')">
+            <span><i class="fas fa-info-circle"></i> About</span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="mobile-dropdown" id="about">
+            <a href="./our-team.html" class="mobile-dropdown-item">
+              <i class="fas fa-users"></i> Our Team
+            </a>
+            <a href="./history.html" class="mobile-dropdown-item">
+              <i class="fas fa-history"></i> Company History
+            </a>
+            <a href="./careers.html" class="mobile-dropdown-item">
+              <i class="fas fa-users-cog"></i> Careers
+            </a>
+            <a href="./achievements.html" class="mobile-dropdown-item">
+              <i class="fas fa-award"></i> Achievements
+            </a>
+          </div>
+        </li>
+
+        
+        <li class="mobile-nav-item">
+          <a href="./services.html" class="mobile-nav-link" onclick="toggleMobileDropdown(event, 'services')">
+            <span><i class="fas fa-cogs"></i> Services</span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <div class="mobile-dropdown" id="services">
+            <a href="./web-development.html" class="mobile-dropdown-item">
+              <i class="fas fa-globe"></i> Web Development
+            </a>
+            <a href="./data-services.html" class="mobile-dropdown-item">
+              <i class="fas fa-database"></i> Data Service
+            </a>
+            <a href="./custom-software.html" class="mobile-dropdown-item">
+              <i class="fas fa-code"></i> Custom Software
+            </a>
+            <a href="./wordpress-development.html" class="mobile-dropdown-item">
+              <i class="fab fa-wordpress"></i> WordPress Development
+            </a>
+            <a href="./seo-services.html" class="mobile-dropdown-item">
+              <i class="fas fa-chart-line"></i> Search engine Optimization
+            </a>
+            <a href="./digital-marketing.html" class="mobile-dropdown-item">
+              <i class="fas fa-bullhorn"></i> Digital Marketing
+            </a>
+            <a href="./maintenance-support.html" class="mobile-dropdown-item">
+              <i class="fas fa-tools"></i> Maintenance & Support
+            </a>
+          </div>
+        </li>
+
+
+        <li class="mobile-nav-item">
+          <a href="./portfolio.html" class="mobile-nav-link">
+            <span><i class="fas fa-briefcase"></i> Portfolio</span>
+          </a>
+        </li>
+
+
+        <li class="mobile-nav-item">
+          <a href="./blog.html" class="mobile-nav-link">
+            <span><i class="fas fa-blog"></i> Blog</span>
+          </a>
+        </li>
+
+        <li class="mobile-nav-item">
+          <a href="./contact-us.html" class="mobile-nav-link">
+            <span><i class="fas fa-envelope"></i> Contact</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+  
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="seo-icons">
+      <div class="seo-icon"><i class="fas fa-search"></i></div>
+      <div class="seo-icon"><i class="fas fa-chart-line"></i></div>
+      <div class="seo-icon"><i class="fas fa-bullseye"></i></div>
+      <div class="seo-icon"><i class="fas fa-rocket"></i></div>
+      <div class="seo-icon"><i class="fas fa-trophy"></i></div>
+    </div>
+    
+    <div class="brand">TechRiwaayat</div>
+    <h1 class="hero-title">SEO Services</h1>
+    <div class="hero-subtitle">Boost your online visibility and drive organic traffic with our proven SEO strategies</div>
+    <div class="hero-cta">
+      <a href="#pricing" class="cta-btn cta-primary">
+        <span>View Packages</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="#contact" class="cta-btn cta-secondary">
+        <span>Free SEO Audit</span>
+        <i class="fas fa-search"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-container">
+      <div class="stat-item animate-on-scroll">
+        <span class="stat-number" data-target="500">0</span>
+        <span class="stat-label">Websites Optimized</span>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <span class="stat-number" data-target="150">0</span>
+        <span class="stat-label">Average % Traffic Increase</span>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <span class="stat-number" data-target="95">0</span>
+        <span class="stat-label">Client Satisfaction Rate</span>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <span class="stat-number" data-target="2000">0</span>
+        <span class="stat-label">Keywords Ranked #1</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO Process Section -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Our SEO Process</h2>
+        <p class="section-subtitle">A systematic approach to improve your search engine rankings</p>
+      </div>
+      
+      <div class="process-timeline">
+        <div class="timeline-line"></div>
+        
+        <div class="process-item animate-on-scroll">
+          <div class="process-number">1</div>
+          <div class="process-content">
+            <h3 class="process-title">SEO Audit & Analysis</h3>
+            <p class="process-description">We start with a comprehensive audit of your website, analyzing technical issues, content quality, and competitive landscape to create a baseline for improvement.</p>
+          </div>
+        </div>
+
+        <div class="process-item animate-on-scroll">
+          <div class="process-number">2</div>
+          <div class="process-content">
+            <h3 class="process-title">Keyword Research & Strategy</h3>
+            <p class="process-description">Identify high-value keywords that your target audience is searching for, analyzing search volume, competition, and user intent to build a winning strategy.</p>
+          </div>
+        </div>
+
+        <div class="process-item animate-on-scroll">
+          <div class="process-number">3</div>
+          <div class="process-content">
+            <h3 class="process-title">Technical Optimization</h3>
+            <p class="process-description">Fix technical issues, improve site speed, enhance mobile responsiveness, and implement proper schema markup to ensure search engines can crawl and index your site effectively.</p>
+          </div>
+        </div>
+
+        <div class="process-item animate-on-scroll">
+          <div class="process-number">4</div>
+          <div class="process-content">
+            <h3 class="process-title">Content Optimization</h3>
+            <p class="process-description">Optimize existing content and create new, high-quality content that targets your keywords while providing value to your audience and satisfying search intent.</p>
+          </div>
+        </div>
+
+        <div class="process-item animate-on-scroll">
+          <div class="process-number">5</div>
+          <div class="process-content">
+            <h3 class="process-title">Link Building Campaign</h3>
+            <p class="process-description">Build high-quality backlinks from authoritative websites in your industry to increase your domain authority and improve your search engine rankings.</p>
+          </div>
+        </div>
+
+        <div class="process-item animate-on-scroll">
+          <div class="process-number">6</div>
+          <div class="process-content">
+            <h3 class="process-title">Monitor & Optimize</h3>
+            <p class="process-description">Continuously monitor performance, track rankings, analyze traffic patterns, and make data-driven optimizations to maintain and improve your search visibility.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO Benefits Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Why Invest in SEO?</h2>
+        <p class="section-subtitle">Discover the powerful benefits of professional SEO services for your business</p>
+      </div>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Increased Organic Traffic</h3>
+          <p>Drive more qualified visitors to your website through improved search engine rankings for relevant keywords.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <h3>Cost-Effective Marketing</h3>
+          <p>SEO provides long-term value and better ROI compared to paid advertising, with lasting results that compound over time.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3>Brand Credibility</h3>
+          <p>Higher search rankings establish trust and credibility with your audience, positioning you as an industry authority.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Better User Experience</h3>
+          <p>SEO improvements often enhance overall user experience, leading to higher engagement and conversion rates.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3>Targeted Audience</h3>
+          <p>Reach users who are actively searching for your products or services, leading to higher quality leads and conversions.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>Competitive Advantage</h3>
+          <p>Stay ahead of competitors by ranking higher in search results and capturing more market share in your industry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- CTA Section -->
+  <section class="section cta-section" id="contact">
+    <div class="container">
+      <div class="cta-content animate-on-scroll">
+        <h2 class="cta-title">Ready to Dominate Search Results?</h2>
+        <p class="cta-subtitle">Get a free SEO audit and discover how we can improve your search engine rankings</p>
+        <div class="hero-cta">
+          <a href="contact_us_page.html" class="cta-btn cta-primary">
+            <span>Get Free SEO Audit</span>
+            <i class="fas fa-search"></i>
+          </a>
+          <a href="tel:+923287458137" class="cta-btn cta-secondary">
+            <span>Call Now</span>
+            <i class="fas fa-phone"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    <!-- SEO Services Section -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Our SEO Services</h2>
+        <p class="section-subtitle">Comprehensive SEO solutions to improve your search engine rankings and online presence</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>Technical SEO Audit</h3>
+          <p>Complete analysis of your website's technical health and performance to identify optimization opportunities.</p>
+          <ul class="service-features">
+            <li>Site Speed Analysis</li>
+            <li>Mobile Responsiveness Check</li>
+            <li>URL Structure Optimization</li>
+            <li>Schema Markup Implementation</li>
+            <li>XML Sitemap Optimization</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-key"></i>
+          </div>
+          <h3>Keyword Research & Strategy</h3>
+          <p>In-depth keyword analysis to identify high-value search terms that drive qualified traffic to your website.</p>
+          <ul class="service-features">
+            <li>Competitor Keyword Analysis</li>
+            <li>Long-tail Keyword Identification</li>
+            <li>Search Intent Mapping</li>
+            <li>Keyword Difficulty Assessment</li>
+            <li>Monthly Search Volume Analysis</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-edit"></i>
+          </div>
+          <h3>On-Page Optimization</h3>
+          <p>Optimize your website's content, structure, and meta elements to improve search engine visibility.</p>
+          <ul class="service-features">
+            <li>Title Tag & Meta Description Optimization</li>
+            <li>Header Tag Structure</li>
+            <li>Content Optimization</li>
+            <li>Internal Linking Strategy</li>
+            <li>Image Alt Tag Optimization</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-link"></i>
+          </div>
+          <h3>Link Building</h3>
+          <p>Build high-quality, authoritative backlinks to increase your website's domain authority and rankings.</p>
+          <ul class="service-features">
+            <li>High-Authority Link Acquisition</li>
+            <li>Guest Posting Opportunities</li>
+            <li>Broken Link Building</li>
+            <li>Resource Page Link Building</li>
+            <li>Competitor Backlink Analysis</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Local SEO</h3>
+          <p>Optimize your online presence for local searches to attract customers in your geographic area.</p>
+          <ul class="service-features">
+            <li>Google My Business Optimization</li>
+            <li>Local Citation Building</li>
+            <li>Local Keyword Targeting</li>
+            <li>Review Management</li>
+            <li>Local Schema Markup</li>
+          </ul>
+        </div>
+
+        <div class="service-card animate-on-scroll">
+          <div class="service-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>SEO Analytics & Reporting</h3>
+          <p>Comprehensive tracking and reporting to measure SEO performance and ROI with detailed insights.</p>
+          <ul class="service-features">
+            <li>Google Analytics Setup</li>
+            <li>Search Console Configuration</li>
+            <li>Monthly Performance Reports</li>
+            <li>Ranking Position Tracking</li>
+            <li>Traffic & Conversion Analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">
+            <h3>TechRiwaayat</h3>
+            <p>Professional data processing and web development solutions that drive business growth.</p>
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        
+       <div class="footer-section">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="./web-development.html"> Custom Web Development</a></li>
+            <li><a href="./wordpress-development.html">WordPress Development</a></li>
+            <li><a href="./data-services.html">Data Entry Services</a></li>
+            <li><a href="./data-services.html">Web Scraping</a></li>
+            <li><a href="./seo-services.html">Seo Services</a></li>
+            <li><a href="./custom-software.html">Software Development</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="./about-us.html">About Us</a></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><a href="./portfolio.html">Portfolio</a></li>
+             <li><a href="./services.html">Services</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Lahore, Punjab, Pakistan</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+923287458137">+92 328 7458137</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:mudassar523r@gmail.com">mudassar523r@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-clock"></i>
+              <span>24/7 Available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <div class="copyright">
+            <p>&copy; 2025 TechRiwaayat. All rights reserved.</p>
+          </div>
+          <div class="footer-bottom-links">
+            <a href="./privacy-policy.html">Privacy Policy</a>
+            <a href="./terms-of-service.html">Terms of Service</a>
+            <a href="./cookie-policy.html">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+
+
+ // Loading overlay
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loadingOverlay').classList.add('hidden');
+      }, 1500);
+    });
+
+    
+
+     // Mobile menu toggle functionality
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const navbar = document.getElementById('navbar');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      mobileToggle.classList.toggle('active');
+      
+      // Toggle hamburger/close icon
+      if (mobileMenu.classList.contains('active')) {
+        toggleIcon.classList.remove('fa-bars');
+        toggleIcon.classList.add('fa-times');
+      } else {
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Mobile dropdown toggle functionality
+    function toggleMobileDropdown(event, dropdownId) {
+      event.preventDefault();
+      const dropdown = document.getElementById(dropdownId);
+      const arrow = event.currentTarget.querySelector('.dropdown-arrow');
+      
+      // Close other dropdowns
+      document.querySelectorAll('.mobile-dropdown').forEach(item => {
+        if (item.id !== dropdownId) {
+          item.classList.remove('active');
+        }
+      });
+      
+      document.querySelectorAll('.mobile-nav-link .dropdown-arrow').forEach(item => {
+        if (item !== arrow) {
+          item.style.transform = 'rotate(0deg)';
+        }
+      });
+      
+      // Toggle current dropdown
+      dropdown.classList.toggle('active');
+      
+      if (dropdown.classList.contains('active')) {
+        arrow.style.transform = 'rotate(180deg)';
+      } else {
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!mobileMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) {
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    });
+
+    // Desktop dropdown hover enhancement
+    document.querySelectorAll('.nav-item').forEach(item => {
+      const dropdown = item.querySelector('.dropdown');
+      if (dropdown) {
+        let hoverTimer;
+        
+        item.addEventListener('mouseenter', () => {
+          clearTimeout(hoverTimer);
+          item.classList.add('active');
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          hoverTimer = setTimeout(() => {
+            item.classList.remove('active');
+          }, 150);
+        });
+      }
+    });
+
+    // Keyboard navigation support
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        // Close mobile menu on Escape
+        mobileMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+        
+        // Close all mobile dropdowns
+        document.querySelectorAll('.mobile-dropdown').forEach(dropdown => {
+          dropdown.classList.remove('active');
+        });
+        
+        document.querySelectorAll('.mobile-nav-link .dropdown-arrow').forEach(arrow => {
+          arrow.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+
+
+
+
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          
+          // Animate counters when stats section comes into view
+          if (entry.target.classList.contains('stat-item')) {
+            animateCounter(entry.target.querySelector('.stat-number'));
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Counter animation function
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const increment = target / 100;
+      let current = 0;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        element.textContent = Math.floor(current);
+        
+        if (current >= target) {
+          element.textContent = target;
+          clearInterval(timer);
+        }
+      }, 20);
+    }
+
+    // Parallax effect for hero and CTA sections
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero-section');
+      const cta = document.querySelector('.cta-section');
+      
+      if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+      }
+      
+      if (cta) {
+        const ctaOffset = cta.offsetTop;
+        const ctaScroll = scrolled - ctaOffset + window.innerHeight;
+        if (ctaScroll > 0) {
+          cta.style.transform = `translateY(${ctaScroll * 0.1}px)`;
+        }
+      }
+    });
+
+    // SEO icons animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const seoIcons = document.querySelectorAll('.seo-icon');
+      seoIcons.forEach((icon, index) => {
+        setTimeout(() => {
+          icon.style.opacity = '1';
+          icon.style.animation = `floatIcon ${6 + index}s ease-in-out infinite ${index % 2 === 0 ? '' : 'reverse'}`;
+        }, index * 300);
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Service cards enhanced interaction
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+        this.querySelector('.service-icon').style.transform = 'scale(1.1) rotate(5deg)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+        this.querySelector('.service-icon').style.transform = 'scale(1) rotate(0deg)';
+      });
+    });
+
+    // Benefit cards shimmer effect enhancement
+    document.querySelectorAll('.benefit-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        const icon = this.querySelector('.benefit-icon');
+        icon.style.transform = 'scale(1.1) rotate(10deg)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        const icon = this.querySelector('.benefit-icon');
+        icon.style.transform = 'scale(1) rotate(0deg)';
+      });
+    });
+
+    // Pricing cards interaction
+    document.querySelectorAll('.pricing-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        if (!this.classList.contains('featured')) {
+          this.style.borderColor = '#10b981';
+        }
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        if (!this.classList.contains('featured')) {
+          this.style.borderColor = 'transparent';
+        }
+      });
+    });
+
+    // Process timeline animation
+    const processItems = document.querySelectorAll('.process-item');
+    processItems.forEach((item, index) => {
+      item.style.animationDelay = `${index * 0.2}s`;
+    });
+
+    // Enhanced button loading states
+    document.querySelectorAll('.plan-btn, .cta-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (this.href && !this.href.includes('#') && !this.href.includes('tel:')) {
+          e.preventDefault();
+          
+          const originalContent = this.innerHTML;
+          this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+          this.style.pointerEvents = 'none';
+          
+          setTimeout(() => {
+            if (this.href.includes('contact_us_page.html')) {
+              window.location.href = this.href;
+            } else {
+              this.innerHTML = originalContent;
+              this.style.pointerEvents = 'auto';
+            }
+          }, 1500);
+        }
+      });
+    });
+
+    // Dynamic pricing calculation (example for future enhancement)
+    function calculateCustomPricing(keywords, pages, links) {
+      const basePrice = 200;
+      const keywordPrice = keywords * 10;
+      const pagePrice = pages * 5;
+      const linkPrice = links * 15;
+      
+      return basePrice + keywordPrice + pagePrice + linkPrice;
+    }
+
+    // SEO tips tooltip system (optional enhancement)
+    function createTooltip(element, text) {
+      const tooltip = document.createElement('div');
+      tooltip.className = 'seo-tooltip';
+      tooltip.textContent = text;
+      tooltip.style.cssText = `
+        position: absolute;
+        background: #1f2937;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      `;
+      
+      element.appendChild(tooltip);
+      
+      element.addEventListener('mouseenter', () => {
+        tooltip.style.opacity = '1';
+      });
+      
+      element.addEventListener('mouseleave', () => {
+        tooltip.style.opacity = '0';
+      });
+    }
+
+    // Performance monitoring
+    window.addEventListener('load', () => {
+      console.log('🚀 SEO Services page loaded successfully!');
+      console.log(`⚡ Page load time: ${performance.now().toFixed(2)}ms`);
+      
+      // Track page performance
+      const navigation = performance.getEntriesByType('navigation')[0];
+      if (navigation) {
+        console.log(`📊 DOM loaded: ${navigation.domContentLoadedEventEnd.toFixed(2)}ms`);
+        console.log(`🎨 Page rendered: ${navigation.loadEventEnd.toFixed(2)}ms`);
+      }
+    });
+
+    // Error handling and fallbacks
+    window.addEventListener('error', (e) => {
+      console.error('Page error:', e.error);
+    });
+
+    // Lazy loading for images
+    function lazyLoadImages() {
+      const images = document.querySelectorAll('img[data-src]');
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+      
+      images.forEach(img => imageObserver.observe(img));
+    }
+
+    // Initialize lazy loading
+    lazyLoadImages();
+
+    // Contact form integration helper (for future use)
+    function initContactForm() {
+      const forms = document.querySelectorAll('form');
+      forms.forEach(form => {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          
+          const formData = new FormData(form);
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+          submitBtn.disabled = true;
+          
+          try {
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // Show success message
+            alert('Thank you! We will contact you soon for your free SEO audit.');
+            form.reset();
+          } catch (error) {
+            alert('Sorry, there was an error. Please try again or call us directly.');
+          } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>
+
